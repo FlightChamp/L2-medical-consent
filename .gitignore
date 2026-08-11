@@ -1,0 +1,31 @@
+# 데이터 — 절대 올리지 않음
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+outputs/
+*.pdf
+*.hwp
+*.zip
+
+# 모델 가중치
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+
+# 파이썬
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# 환경변수·비밀정보 ⚠️ 서버 접속정보 절대 금지
+.env
+*.key
+secrets.*
+
+# OS
+.DS_Store
+Thumbs.db
