@@ -1,0 +1,113 @@
+{
+  "config": {
+    "docs_dir": "docs",
+    "out_prefix": "nli_sens2_k2",
+    "include_syn": false,
+    "target_n": 80,
+    "min_sent_chars": 20,
+    "max_sent_chars": 300,
+    "chunk_max_span": 3,
+    "topk": 2,
+    "batch_size": 128,
+    "max_length": 256,
+    "seed": 20260826,
+    "tau": 0.5
+  },
+  "n_cases": 777,
+  "n_original": 319,
+  "scaffold_ratio": 0.3342918763479511,
+  "auroc": {
+    "FABRICATE": {
+      "GLOBAL": 0.9607,
+      "FILTERED": 0.9733,
+      "TOPK": 1.0,
+      "LOCAL": 1.0
+    },
+    "NEGATE": {
+      "GLOBAL": 0.941,
+      "FILTERED": 0.944,
+      "TOPK": 0.993,
+      "LOCAL": 0.9881
+    },
+    "NUM_CHANGE": {
+      "GLOBAL": 0.9111,
+      "FILTERED": 0.91,
+      "TOPK": 0.9999,
+      "LOCAL": 0.9969
+    },
+    "OFF_TOPIC": {
+      "GLOBAL": 0.9885,
+      "FILTERED": 0.9809,
+      "TOPK": 1.0,
+      "LOCAL": 0.9967
+    },
+    "SEVERITY_FLIP": {
+      "GLOBAL": 0.6673,
+      "FILTERED": 0.648,
+      "TOPK": 0.6909,
+      "LOCAL": 0.7367
+    },
+    "TERM_SWAP": {
+      "GLOBAL": 0.7125,
+      "FILTERED": 0.7003,
+      "TOPK": 0.8365,
+      "LOCAL": 0.842
+    },
+    "UNIT_CHANGE": {
+      "GLOBAL": 0.9246,
+      "FILTERED": 0.926,
+      "TOPK": 1.0,
+      "LOCAL": 0.9999
+    }
+  },
+  "detect": {
+    "FABRICATE": {
+      "GLOBAL": 0.8375,
+      "FILTERED": 0.9125,
+      "TOPK": 1.0,
+      "LOCAL": 1.0
+    },
+    "NEGATE": {
+      "GLOBAL": 0.6625,
+      "FILTERED": 0.7125,
+      "TOPK": 0.9875,
+      "LOCAL": 0.9625
+    },
+    "NUM_CHANGE": {
+      "GLOBAL": 0.6087,
+      "FILTERED": 0.6377,
+      "TOPK": 1.0,
+      "LOCAL": 0.9855
+    },
+    "OFF_TOPIC": {
+      "GLOBAL": 0.7875,
+      "FILTERED": 0.7875,
+      "TOPK": 1.0,
+      "LOCAL": 0.975
+    },
+    "SEVERITY_FLIP": {
+      "GLOBAL": 0.16,
+      "FILTERED": 0.16,
+      "TOPK": 0.6,
+      "LOCAL": 0.6
+    },
+    "TERM_SWAP": {
+      "GLOBAL": 0.225,
+      "FILTERED": 0.25,
+      "TOPK": 0.7375,
+      "LOCAL": 0.575
+    },
+    "UNIT_CHANGE": {
+      "GLOBAL": 0.6364,
+      "FILTERED": 0.6591,
+      "TOPK": 1.0,
+      "LOCAL": 1.0
+    }
+  },
+  "specificity": {
+    "GLOBAL": 0.9655,
+    "FILTERED": 0.9436,
+    "TOPK": 0.8056,
+    "LOCAL": 0.9373
+  }
+}
