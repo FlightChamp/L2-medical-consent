@@ -1,0 +1,30 @@
+{
+  "tau": 0.4506,
+  "n_complete": 512,
+  "by_kind": {
+    "FULL_OMIT": {
+      "n": 512,
+      "mean": 0.4059,
+      "detect": 0.6074,
+      "auroc": 0.8294
+    },
+    "PARTIAL_OMIT": {
+      "n": 207,
+      "mean": 0.4918,
+      "detect": 0.4638,
+      "auroc": 0.8011
+    },
+    "TERM_OMIT": {
+      "n": 157,
+      "mean": 0.6452,
+      "detect": 0.2229,
+      "auroc": 0.7017
+    },
+    "OFF_TOPIC": {
+      "n": 52,
+      "mean": 0.0437,
+      "detect": 1.0,
+      "auroc": 1.0
+    }
+  }
+}
