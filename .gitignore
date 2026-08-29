@@ -1,31 +1,108 @@
-# 데이터 — 절대 올리지 않음
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
-outputs/
+
+# 실제 동의서 및 파생물
 *.pdf
 *.hwp
 *.zip
+docs/*.txt
+docs/*.pdf
+docs/_*/
+outputs/
+outputs_*/
+results_*/
 
-# 모델 가중치
+# 원문·변환문 포함 결과
+*_cases.csv
+*_cases.tsv
+*_review*.tsv
+*_review_*.json
+report*.json
+realdoc_report.json
+doc*_test_report.json
+translate_eval.json
+translate_demo.json
+termdict_raw.json
+human_eval_*
+translation_excerpt.txt
+nli_sens2_scaffold.txt
+results_hari_baseline_*.txt
+halluc*_report.json
+verifier_report.json
+judge*_result.json
+nli_eval*_result.json
+comet_result*.json
+prompt_ablation.json
+ablation*_result.json
+compare*_result.json
+blank_guard_report.json
+expansion_sections.json
+extract_audit_report.json
+kormedmcqa_result.json
+review_match_report.json
+doc1_analysis.md
+numeric_report.md
+presentation_summary.md
+FINAL_SUMMARY.*
+kofih_*.json
+kofih_*.tsv
+term_review_*.tsv
+
+# 모델 · 대용량
+models/
+checkpoints/
+runs/
+trained_models/
 *.bin
 *.safetensors
 *.pt
+*.pth
 *.ckpt
+*.h5
+*.onnx
+*.tar.gz
 
 # 파이썬
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+env/
+*.egg-info/
 .ipynb_checkpoints/
+.pytest_cache/
 
-# 환경변수·비밀정보 ⚠️ 서버 접속정보 절대 금지
+# 로그 · 임시
+logs/
+*.log
+*_log.txt
+log[ABC].txt
+logQ[12].txt
+.cache/
+.huggingface/
+*.tmp
+*.bak
+*.bak_*
+_check/
+_preflight*/
+
+# 서버 종속 · 폐기 버전
+*.sh
+rerun_sections.py
+rerun_sections2.py
+
+# 비밀
 .env
 *.key
-secrets.*
+*.pem
+credentials*
+secrets*
 
 # OS
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+*.swp
