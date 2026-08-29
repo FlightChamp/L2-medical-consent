@@ -1,0 +1,74 @@
+{
+  "en": {
+    "tau": 0.0628,
+    "n_correct": 300,
+    "by_kind": {
+      "MISMATCH": {
+        "n": 300,
+        "mean": 0.0703,
+        "detect": 0.7967,
+        "auroc": 0.9602
+      },
+      "NUM_CHANGE": {
+        "n": 66,
+        "mean": 0.0405,
+        "detect": 0.8333,
+        "auroc": 0.9746
+      },
+      "TRUNCATE": {
+        "n": 300,
+        "mean": 0.7486,
+        "detect": 0.0467,
+        "auroc": 0.4917
+      }
+    }
+  },
+  "zh": {
+    "tau": 0.0329,
+    "n_correct": 300,
+    "by_kind": {
+      "MISMATCH": {
+        "n": 300,
+        "mean": 0.1718,
+        "detect": 0.3433,
+        "auroc": 0.8363
+      },
+      "NUM_CHANGE": {
+        "n": 128,
+        "mean": 0.1025,
+        "detect": 0.5781,
+        "auroc": 0.8952
+      },
+      "TRUNCATE": {
+        "n": 219,
+        "mean": 0.5912,
+        "detect": 0.0594,
+        "auroc": 0.5166
+      }
+    }
+  },
+  "ja": {
+    "tau": 0.0789,
+    "n_correct": 300,
+    "by_kind": {
+      "MISMATCH": {
+        "n": 300,
+        "mean": 0.1553,
+        "detect": 0.58,
+        "auroc": 0.8999
+      },
+      "NUM_CHANGE": {
+        "n": 159,
+        "mean": 0.0243,
+        "detect": 0.9434,
+        "auroc": 0.9837
+      },
+      "TRUNCATE": {
+        "n": 254,
+        "mean": 0.6201,
+        "detect": 0.0866,
+        "auroc": 0.5075
+      }
+    }
+  }
+}

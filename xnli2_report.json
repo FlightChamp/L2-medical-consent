@@ -1,0 +1,228 @@
+{
+  "meta": {
+    "en": {
+      "termdict": 22,
+      "n": 300
+    },
+    "zh": {
+      "termdict": 28,
+      "n": 300
+    },
+    "ja": {
+      "termdict": 10,
+      "n": 300
+    }
+  },
+  "summary": {
+    "en": {
+      "taus": {
+        "FWD": 0.0304,
+        "REV": 0.0126,
+        "MIN": 0.0074
+      },
+      "n_correct": 300,
+      "by_kind": {
+        "MISMATCH": {
+          "n": 300,
+          "FWD": {
+            "detect": 0.5733,
+            "auroc": 0.912
+          },
+          "REV": {
+            "detect": 0.4367,
+            "auroc": 0.9083
+          },
+          "MIN": {
+            "detect": 0.4867,
+            "auroc": 0.9323
+          }
+        },
+        "NUM_CHANGE": {
+          "n": 124,
+          "FWD": {
+            "detect": 0.7177,
+            "auroc": 0.9451
+          },
+          "REV": {
+            "detect": 0.379,
+            "auroc": 0.814
+          },
+          "MIN": {
+            "detect": 0.5887,
+            "auroc": 0.9166
+          }
+        },
+        "TRUNCATE": {
+          "n": 300,
+          "FWD": {
+            "detect": 0.0467,
+            "auroc": 0.4878
+          },
+          "REV": {
+            "detect": 0.4867,
+            "auroc": 0.9073
+          },
+          "MIN": {
+            "detect": 0.3933,
+            "auroc": 0.8912
+          }
+        },
+        "TERM_SWAP": {
+          "n": 95,
+          "FWD": {
+            "detect": 0.2316,
+            "auroc": 0.736
+          },
+          "REV": {
+            "detect": 0.0737,
+            "auroc": 0.5828
+          },
+          "MIN": {
+            "detect": 0.1053,
+            "auroc": 0.6927
+          }
+        }
+      }
+    },
+    "zh": {
+      "taus": {
+        "FWD": 0.0287,
+        "REV": 0.0352,
+        "MIN": 0.0183
+      },
+      "n_correct": 300,
+      "by_kind": {
+        "MISMATCH": {
+          "n": 300,
+          "FWD": {
+            "detect": 0.39,
+            "auroc": 0.8668
+          },
+          "REV": {
+            "detect": 0.4333,
+            "auroc": 0.9116
+          },
+          "MIN": {
+            "detect": 0.47,
+            "auroc": 0.9128
+          }
+        },
+        "NUM_CHANGE": {
+          "n": 106,
+          "FWD": {
+            "detect": 0.8774,
+            "auroc": 0.9685
+          },
+          "REV": {
+            "detect": 0.6792,
+            "auroc": 0.9339
+          },
+          "MIN": {
+            "detect": 0.8491,
+            "auroc": 0.9678
+          }
+        },
+        "TRUNCATE": {
+          "n": 203,
+          "FWD": {
+            "detect": 0.0493,
+            "auroc": 0.5156
+          },
+          "REV": {
+            "detect": 0.5567,
+            "auroc": 0.9152
+          },
+          "MIN": {
+            "detect": 0.5025,
+            "auroc": 0.8832
+          }
+        },
+        "TERM_SWAP": {
+          "n": 14,
+          "FWD": {
+            "detect": 0.1429,
+            "auroc": 0.7731
+          },
+          "REV": {
+            "detect": 0.1429,
+            "auroc": 0.726
+          },
+          "MIN": {
+            "detect": 0.0714,
+            "auroc": 0.7495
+          }
+        }
+      }
+    },
+    "ja": {
+      "taus": {
+        "FWD": 0.0202,
+        "REV": 0.0321,
+        "MIN": 0.0152
+      },
+      "n_correct": 300,
+      "by_kind": {
+        "MISMATCH": {
+          "n": 300,
+          "FWD": {
+            "detect": 0.26,
+            "auroc": 0.773
+          },
+          "REV": {
+            "detect": 0.4367,
+            "auroc": 0.8327
+          },
+          "MIN": {
+            "detect": 0.4167,
+            "auroc": 0.8762
+          }
+        },
+        "NUM_CHANGE": {
+          "n": 129,
+          "FWD": {
+            "detect": 0.9612,
+            "auroc": 0.9893
+          },
+          "REV": {
+            "detect": 0.8062,
+            "auroc": 0.9216
+          },
+          "MIN": {
+            "detect": 0.9612,
+            "auroc": 0.991
+          }
+        },
+        "TRUNCATE": {
+          "n": 242,
+          "FWD": {
+            "detect": 0.0785,
+            "auroc": 0.5497
+          },
+          "REV": {
+            "detect": 0.4959,
+            "auroc": 0.8888
+          },
+          "MIN": {
+            "detect": 0.4215,
+            "auroc": 0.8781
+          }
+        },
+        "TERM_SWAP": {
+          "n": 131,
+          "FWD": {
+            "detect": 0.1908,
+            "auroc": 0.8154
+          },
+          "REV": {
+            "detect": 0.0458,
+            "auroc": 0.6353
+          },
+          "MIN": {
+            "detect": 0.1374,
+            "auroc": 0.793
+          }
+        }
+      }
+    }
+  }
+}
