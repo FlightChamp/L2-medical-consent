@@ -1,0 +1,3 @@
+Rewrite the following Korean surgical consent form in plain, easy Korean for a patient. Keep every number, condition, duration, and the surgery name exactly as in the original. Output only the rewritten Korean text.
+
+{text}
