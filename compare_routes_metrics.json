@@ -1,0 +1,1261 @@
+{
+  "baseline_hari_ko": {
+    "ground": 83.64,
+    "cover": 63.2,
+    "term_keep": 39.62,
+    "copy_sim": 0.3,
+    "num_keep": 99.45,
+    "n_halluc": 2,
+    "delta": -10.35
+  },
+  "rows": [
+    {
+      "doc": "doc1",
+      "len": {
+        "K": 1380,
+        "E0": 3234,
+        "E1": 4860,
+        "A_en": 2867,
+        "S_ko": 1158
+      },
+      "n_sents": {
+        "K_pred": 12,
+        "E0_pred": 24,
+        "E1_pred": 43,
+        "A_en_pred": 13
+      },
+      "K_E0": {
+        "ground": 79.2,
+        "cover": 83.3,
+        "min": 79.2
+      },
+      "E0_E1": {
+        "ground": 46.5,
+        "cover": 33.3,
+        "min": 33.3
+      },
+      "K_E1": {
+        "ground": 69.8,
+        "cover": 66.7,
+        "min": 66.7
+      },
+      "K_A_en": {
+        "ground": 76.9,
+        "cover": 41.7,
+        "min": 41.7
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 10,
+        "K_E0": {
+          "acc": 77.8,
+          "n": 9,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 66.7,
+          "n": 9,
+          "missed": [
+            "갑상선→thyroid",
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 66.7,
+          "n": 9,
+          "missed": [
+            "갑상선→thyroid",
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.347
+      },
+      "delta": {
+        "K_E0": 134.3,
+        "E0_E1": 50.3,
+        "K_E1": 252.2,
+        "K_A_en": 107.8
+      }
+    },
+    {
+      "doc": "doc10",
+      "len": {
+        "K": 4079,
+        "E0": 9151,
+        "E1": 6261,
+        "A_en": 7596,
+        "S_ko": 3212
+      },
+      "n_sents": {
+        "K_pred": 47,
+        "E0_pred": 61,
+        "E1_pred": 60,
+        "A_en_pred": 54
+      },
+      "K_E0": {
+        "ground": 88.5,
+        "cover": 83.0,
+        "min": 83.0
+      },
+      "E0_E1": {
+        "ground": 55.0,
+        "cover": 32.8,
+        "min": 32.8
+      },
+      "K_E1": {
+        "ground": 91.7,
+        "cover": 68.1,
+        "min": 68.1
+      },
+      "K_A_en": {
+        "ground": 94.4,
+        "cover": 74.5,
+        "min": 74.5
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 1,
+          "halluc": [
+            "7"
+          ]
+        },
+        "E0_E1": {
+          "keep": 71.4,
+          "n_halluc": 1,
+          "halluc": [
+            "60"
+          ]
+        },
+        "K_E1": {
+          "keep": 76.9,
+          "n_halluc": 1,
+          "halluc": [
+            "60"
+          ]
+        },
+        "K_A_en": {
+          "keep": 76.9,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 15,
+        "K_E0": {
+          "acc": 84.6,
+          "n": 13,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 76.9,
+          "n": 13,
+          "missed": [
+            "마취→anesthesia",
+            "후유증→aftereffect",
+            "재발→recurrence"
+          ]
+        },
+        "K_A_en": {
+          "acc": 76.9,
+          "n": 13,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect",
+            "재발→recurrence"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.375
+      },
+      "delta": {
+        "K_E0": 124.3,
+        "E0_E1": -31.6,
+        "K_E1": 53.5,
+        "K_A_en": 86.2
+      }
+    },
+    {
+      "doc": "doc11",
+      "len": {
+        "K": 2893,
+        "E0": 6783,
+        "E1": 6215,
+        "A_en": 4273,
+        "S_ko": 1636
+      },
+      "n_sents": {
+        "K_pred": 32,
+        "E0_pred": 47,
+        "E1_pred": 39,
+        "A_en_pred": 31
+      },
+      "K_E0": {
+        "ground": 91.5,
+        "cover": 81.2,
+        "min": 81.2
+      },
+      "E0_E1": {
+        "ground": 51.3,
+        "cover": 40.4,
+        "min": 40.4
+      },
+      "K_E1": {
+        "ground": 89.7,
+        "cover": 68.8,
+        "min": 68.8
+      },
+      "K_A_en": {
+        "ground": 93.5,
+        "cover": 50.0,
+        "min": 50.0
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 0.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 0.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 50.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 10,
+        "K_E0": {
+          "acc": 100.0,
+          "n": 8,
+          "missed": []
+        },
+        "K_E1": {
+          "acc": 87.5,
+          "n": 8,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 62.5,
+          "n": 8,
+          "missed": [
+            "척추→spinal",
+            "후유증→aftereffect",
+            "감염→infection"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.244
+      },
+      "delta": {
+        "K_E0": 134.5,
+        "E0_E1": -8.4,
+        "K_E1": 114.8,
+        "K_A_en": 47.7
+      }
+    },
+    {
+      "doc": "doc12",
+      "len": {
+        "K": 1760,
+        "E0": 4497,
+        "E1": 4024,
+        "A_en": 4240,
+        "S_ko": 1783
+      },
+      "n_sents": {
+        "K_pred": 21,
+        "E0_pred": 26,
+        "E1_pred": 33,
+        "A_en_pred": 21
+      },
+      "K_E0": {
+        "ground": 84.6,
+        "cover": 76.2,
+        "min": 76.2
+      },
+      "E0_E1": {
+        "ground": 51.5,
+        "cover": 50.0,
+        "min": 50.0
+      },
+      "K_E1": {
+        "ground": 90.9,
+        "cover": 76.2,
+        "min": 76.2
+      },
+      "K_A_en": {
+        "ground": 95.2,
+        "cover": 66.7,
+        "min": 66.7
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 8,
+        "K_E0": {
+          "acc": 85.7,
+          "n": 7,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 57.1,
+          "n": 7,
+          "missed": [
+            "마취→anesthesia",
+            "후유증→aftereffect",
+            "감염→infection"
+          ]
+        },
+        "K_A_en": {
+          "acc": 71.4,
+          "n": 7,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.364
+      },
+      "delta": {
+        "K_E0": 155.5,
+        "E0_E1": -10.5,
+        "K_E1": 128.6,
+        "K_A_en": 140.9
+      }
+    },
+    {
+      "doc": "doc13",
+      "len": {
+        "K": 1578,
+        "E0": 3698,
+        "E1": 4112,
+        "A_en": 3924,
+        "S_ko": 1680
+      },
+      "n_sents": {
+        "K_pred": 19,
+        "E0_pred": 24,
+        "E1_pred": 40,
+        "A_en_pred": 29
+      },
+      "K_E0": {
+        "ground": 83.3,
+        "cover": 84.2,
+        "min": 83.3
+      },
+      "E0_E1": {
+        "ground": 65.0,
+        "cover": 62.5,
+        "min": 62.5
+      },
+      "K_E1": {
+        "ground": 90.0,
+        "cover": 52.6,
+        "min": 52.6
+      },
+      "K_A_en": {
+        "ground": 82.8,
+        "cover": 57.9,
+        "min": 57.9
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 85.7,
+          "n_halluc": 1,
+          "halluc": [
+            "18"
+          ]
+        },
+        "K_E1": {
+          "keep": 85.7,
+          "n_halluc": 1,
+          "halluc": [
+            "18"
+          ]
+        },
+        "K_A_en": {
+          "keep": 85.7,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 11,
+        "K_E0": {
+          "acc": 87.5,
+          "n": 8,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 87.5,
+          "n": 8,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 75.0,
+          "n": 8,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.342
+      },
+      "delta": {
+        "K_E0": 134.3,
+        "E0_E1": 11.2,
+        "K_E1": 160.6,
+        "K_A_en": 148.7
+      }
+    },
+    {
+      "doc": "doc14",
+      "len": {
+        "K": 1600,
+        "E0": 3614,
+        "E1": 4044,
+        "A_en": 3901,
+        "S_ko": 1594
+      },
+      "n_sents": {
+        "K_pred": 23,
+        "E0_pred": 29,
+        "E1_pred": 44,
+        "A_en_pred": 28
+      },
+      "K_E0": {
+        "ground": 86.2,
+        "cover": 82.6,
+        "min": 82.6
+      },
+      "E0_E1": {
+        "ground": 65.9,
+        "cover": 69.0,
+        "min": 65.9
+      },
+      "K_E1": {
+        "ground": 86.4,
+        "cover": 69.6,
+        "min": 69.6
+      },
+      "K_A_en": {
+        "ground": 78.6,
+        "cover": 82.6,
+        "min": 78.6
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 100.0,
+          "n_halluc": 1,
+          "halluc": [
+            "18"
+          ]
+        },
+        "K_E1": {
+          "keep": 100.0,
+          "n_halluc": 1,
+          "halluc": [
+            "18"
+          ]
+        },
+        "K_A_en": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 10,
+        "K_E0": {
+          "acc": 66.7,
+          "n": 9,
+          "missed": [
+            "전립선→prostate",
+            "방광→bladder",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 77.8,
+          "n": 9,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 66.7,
+          "n": 9,
+          "missed": [
+            "전립선→prostate",
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.336
+      },
+      "delta": {
+        "K_E0": 125.9,
+        "E0_E1": 11.9,
+        "K_E1": 152.8,
+        "K_A_en": 143.8
+      }
+    },
+    {
+      "doc": "doc2",
+      "len": {
+        "K": 2308,
+        "E0": 5294,
+        "E1": 3776,
+        "A_en": 4773,
+        "S_ko": 1921
+      },
+      "n_sents": {
+        "K_pred": 28,
+        "E0_pred": 33,
+        "E1_pred": 37,
+        "A_en_pred": 32
+      },
+      "K_E0": {
+        "ground": 90.9,
+        "cover": 82.1,
+        "min": 82.1
+      },
+      "E0_E1": {
+        "ground": 51.4,
+        "cover": 15.2,
+        "min": 15.2
+      },
+      "K_E1": {
+        "ground": 86.5,
+        "cover": 39.3,
+        "min": 39.3
+      },
+      "K_A_en": {
+        "ground": 90.6,
+        "cover": 78.6,
+        "min": 78.6
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 28.6,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 28.6,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 85.7,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 11,
+        "K_E0": {
+          "acc": 75.0,
+          "n": 8,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 62.5,
+          "n": 8,
+          "missed": [
+            "신장→kidney",
+            "골절→fracture",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 75.0,
+          "n": 8,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.317
+      },
+      "delta": {
+        "K_E0": 129.4,
+        "E0_E1": -28.7,
+        "K_E1": 63.6,
+        "K_A_en": 106.8
+      }
+    },
+    {
+      "doc": "doc3",
+      "len": {
+        "K": 1682,
+        "E0": 4425,
+        "E1": 5881,
+        "A_en": 5082,
+        "S_ko": 2073
+      },
+      "n_sents": {
+        "K_pred": 15,
+        "E0_pred": 26,
+        "E1_pred": 54,
+        "A_en_pred": 29
+      },
+      "K_E0": {
+        "ground": 84.6,
+        "cover": 86.7,
+        "min": 84.6
+      },
+      "E0_E1": {
+        "ground": 55.6,
+        "cover": 50.0,
+        "min": 50.0
+      },
+      "K_E1": {
+        "ground": 79.6,
+        "cover": 53.3,
+        "min": 53.3
+      },
+      "K_A_en": {
+        "ground": 93.1,
+        "cover": 53.3,
+        "min": 53.3
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 80.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 80.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 80.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 8,
+        "K_E0": {
+          "acc": 85.7,
+          "n": 7,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 85.7,
+          "n": 7,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 71.4,
+          "n": 7,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.363
+      },
+      "delta": {
+        "K_E0": 163.1,
+        "E0_E1": 32.9,
+        "K_E1": 249.6,
+        "K_A_en": 202.1
+      }
+    },
+    {
+      "doc": "doc4",
+      "len": {
+        "K": 3695,
+        "E0": 8441,
+        "E1": 4665,
+        "A_en": 6006,
+        "S_ko": 2457
+      },
+      "n_sents": {
+        "K_pred": 34,
+        "E0_pred": 43,
+        "E1_pred": 49,
+        "A_en_pred": 26
+      },
+      "K_E0": {
+        "ground": 95.3,
+        "cover": 94.1,
+        "min": 94.1
+      },
+      "E0_E1": {
+        "ground": 32.7,
+        "cover": 20.9,
+        "min": 20.9
+      },
+      "K_E1": {
+        "ground": 81.6,
+        "cover": 52.9,
+        "min": 52.9
+      },
+      "K_A_en": {
+        "ground": 96.2,
+        "cover": 67.6,
+        "min": 67.6
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 0.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 0.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 16.7,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 10,
+        "K_E0": {
+          "acc": 88.9,
+          "n": 9,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 66.7,
+          "n": 9,
+          "missed": [
+            "기흉→pneumothorax",
+            "후유증→aftereffect",
+            "수혈→transfusion"
+          ]
+        },
+        "K_A_en": {
+          "acc": 77.8,
+          "n": 9,
+          "missed": [
+            "기흉→pneumothorax",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.303
+      },
+      "delta": {
+        "K_E0": 128.4,
+        "E0_E1": -44.7,
+        "K_E1": 26.3,
+        "K_A_en": 62.5
+      }
+    },
+    {
+      "doc": "doc5",
+      "len": {
+        "K": 1587,
+        "E0": 3713,
+        "E1": 4275,
+        "A_en": 3844,
+        "S_ko": 1670
+      },
+      "n_sents": {
+        "K_pred": 19,
+        "E0_pred": 27,
+        "E1_pred": 43,
+        "A_en_pred": 29
+      },
+      "K_E0": {
+        "ground": 88.9,
+        "cover": 89.5,
+        "min": 88.9
+      },
+      "E0_E1": {
+        "ground": 51.2,
+        "cover": 63.0,
+        "min": 51.2
+      },
+      "K_E1": {
+        "ground": 81.4,
+        "cover": 78.9,
+        "min": 78.9
+      },
+      "K_A_en": {
+        "ground": 82.8,
+        "cover": 52.6,
+        "min": 52.6
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 85.7,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 85.7,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 85.7,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 9,
+        "K_E0": {
+          "acc": 57.1,
+          "n": 7,
+          "missed": [
+            "전립선→prostate",
+            "방광→bladder",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 42.9,
+          "n": 7,
+          "missed": [
+            "전립선→prostate",
+            "방광→bladder",
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 57.1,
+          "n": 7,
+          "missed": [
+            "전립선→prostate",
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.383
+      },
+      "delta": {
+        "K_E0": 134.0,
+        "E0_E1": 15.1,
+        "K_E1": 169.4,
+        "K_A_en": 142.2
+      }
+    },
+    {
+      "doc": "doc7",
+      "len": {
+        "K": 1173,
+        "E0": 2737,
+        "E1": 5177,
+        "A_en": 2920,
+        "S_ko": 1211
+      },
+      "n_sents": {
+        "K_pred": 11,
+        "E0_pred": 13,
+        "E1_pred": 46,
+        "A_en_pred": 17
+      },
+      "K_E0": {
+        "ground": 92.3,
+        "cover": 100.0,
+        "min": 92.3
+      },
+      "E0_E1": {
+        "ground": 50.0,
+        "cover": 69.2,
+        "min": 50.0
+      },
+      "K_E1": {
+        "ground": 93.5,
+        "cover": 63.6,
+        "min": 63.6
+      },
+      "K_A_en": {
+        "ground": 100.0,
+        "cover": 81.8,
+        "min": 81.8
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_E1": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "K_A_en": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 6,
+        "K_E0": {
+          "acc": 60.0,
+          "n": 5,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 60.0,
+          "n": 5,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 60.0,
+          "n": 5,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.426
+      },
+      "delta": {
+        "K_E0": 133.3,
+        "E0_E1": 89.1,
+        "K_E1": 341.3,
+        "K_A_en": 148.9
+      }
+    },
+    {
+      "doc": "doc8",
+      "len": {
+        "K": 1170,
+        "E0": 2802,
+        "E1": 3497,
+        "A_en": 2397,
+        "S_ko": 974
+      },
+      "n_sents": {
+        "K_pred": 15,
+        "E0_pred": 18,
+        "E1_pred": 40,
+        "A_en_pred": 13
+      },
+      "K_E0": {
+        "ground": 100.0,
+        "cover": 80.0,
+        "min": 80.0
+      },
+      "E0_E1": {
+        "ground": 37.5,
+        "cover": 55.6,
+        "min": 37.5
+      },
+      "K_E1": {
+        "ground": 75.0,
+        "cover": 66.7,
+        "min": 66.7
+      },
+      "K_A_en": {
+        "ground": 92.3,
+        "cover": 60.0,
+        "min": 60.0
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 100.0,
+          "n_halluc": 1,
+          "halluc": [
+            "18"
+          ]
+        },
+        "K_E1": {
+          "keep": 100.0,
+          "n_halluc": 1,
+          "halluc": [
+            "18"
+          ]
+        },
+        "K_A_en": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 8,
+        "K_E0": {
+          "acc": 60.0,
+          "n": 5,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 80.0,
+          "n": 5,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_A_en": {
+          "acc": 60.0,
+          "n": 5,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.39
+      },
+      "delta": {
+        "K_E0": 139.5,
+        "E0_E1": 24.8,
+        "K_E1": 198.9,
+        "K_A_en": 104.9
+      }
+    },
+    {
+      "doc": "doc9",
+      "len": {
+        "K": 3614,
+        "E0": 8005,
+        "E1": 6061,
+        "A_en": 6498,
+        "S_ko": 2679
+      },
+      "n_sents": {
+        "K_pred": 45,
+        "E0_pred": 55,
+        "E1_pred": 60,
+        "A_en_pred": 40
+      },
+      "K_E0": {
+        "ground": 92.7,
+        "cover": 80.0,
+        "min": 80.0
+      },
+      "E0_E1": {
+        "ground": 63.3,
+        "cover": 45.5,
+        "min": 45.5
+      },
+      "K_E1": {
+        "ground": 96.7,
+        "cover": 64.4,
+        "min": 64.4
+      },
+      "K_A_en": {
+        "ground": 95.0,
+        "cover": 80.0,
+        "min": 80.0
+      },
+      "num": {
+        "K_E0": {
+          "keep": 100.0,
+          "n_halluc": 0,
+          "halluc": []
+        },
+        "E0_E1": {
+          "keep": 50.0,
+          "n_halluc": 1,
+          "halluc": [
+            "35"
+          ]
+        },
+        "K_E1": {
+          "keep": 50.0,
+          "n_halluc": 1,
+          "halluc": [
+            "35"
+          ]
+        },
+        "K_A_en": {
+          "keep": 78.6,
+          "n_halluc": 0,
+          "halluc": []
+        }
+      },
+      "term": {
+        "n_present": 13,
+        "K_E0": {
+          "acc": 90.0,
+          "n": 10,
+          "missed": [
+            "후유증→aftereffect"
+          ]
+        },
+        "K_E1": {
+          "acc": 70.0,
+          "n": 10,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect",
+            "재발→recurrence"
+          ]
+        },
+        "K_A_en": {
+          "acc": 70.0,
+          "n": 10,
+          "missed": [
+            "신장→kidney",
+            "후유증→aftereffect",
+            "재발→recurrence"
+          ]
+        }
+      },
+      "copy_sim": {
+        "E0_E1": 0.392
+      },
+      "delta": {
+        "K_E0": 121.5,
+        "E0_E1": -24.3,
+        "K_E1": 67.7,
+        "K_A_en": 79.8
+      }
+    }
+  ]
+}
