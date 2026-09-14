@@ -106,3 +106,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# ── 실험 산출물 (원문·변환문 포함) ──────────────────────────
+experiment_medllama/outputs/
+experiment_scibert/outputs/tokenizer_audit.json
+run_week.sh
+week_*.log
