@@ -1,0 +1,255 @@
+{
+  "document": "research_freeze",
+  "project": "L2 화자 수술 동의서 지원 플랫폼",
+  "frozen_at": "2026-09-18",
+  "status": "FROZEN",
+  "scope": "생성모델 비교, 프롬프트·구조 실험, 한국어 검증기, retrieval 비교, 번역 검증, Glossary, Simplicity 지표 — 전부 종료. 이후는 제품화 단계.",
+
+  "freeze_by_area": {
+    "generator_comparison": "FROZEN",
+    "prompt_and_structure": "FROZEN",
+    "korean_validator": "FROZEN",
+    "retriever_comparison": "FROZEN",
+    "translation_validator": "FROZEN",
+    "glossary": "FROZEN (v1.05)",
+    "simplicity_readability": "FROZEN (Ko2025 v1.05 최종값 기록 완료)"
+  },
+
+  "final_numbers": {
+    "dataset": {
+      "documents": 13,
+      "source": "경기도의료원 수술 동의서",
+      "note": "수집 14건 중 doc6 은 404 에러 페이지가 PDF 로 저장되어 제외",
+      "avg_eojeol_per_sentence": 7.41,
+      "sentences_over_25_eojeol": 0,
+      "predicate_ratio_pct": 43,
+      "unfilled_blanks_per_doc": 11.6,
+      "blanks_reaching_stage3": 6,
+      "blanks_reaching_stage3_note": "extract_sections 가 서식 골격을 걸러내어 ③ 단계에 도달하는 빈칸은 6곳(4문서)"
+    },
+
+    "generator_comparison": {
+      "harness": "model_compare.py — 지표를 prompt_ladder.py 에서 import 해 계산 동일성 보장. HARI 기준선 소수점까지 재현 검증",
+      "generation_config": "greedy (do_sample=False)",
+      "routes": {
+        "HARI 8B (채택)": {"grounding": 83.64, "coverage": 63.20, "copy_similarity": 0.30, "numeric_preservation": 99.45, "length_change_pct": -10.35},
+        "MedGemma 1.5 4B": {"grounding": 75.60, "coverage": 60.69, "copy_similarity": 0.65, "numeric_preservation": 74.70, "length_change_pct": 91.30},
+        "Medical-Llama3 8B": {"grounding": 62.98, "coverage": 55.52, "copy_similarity": 0.65, "numeric_preservation": 52.81, "length_change_pct": 239.13},
+        "SciBERT": {"verdict": "사용 불가 — 한국어 토큰의 82.9% 가 [UNK] (8,762 중 7,261)"}
+      }
+    },
+
+    "identity_baseline": {
+      "grounding": 74.00,
+      "coverage": 74.00,
+      "numeric_preservation": 100.00,
+      "ko2025_A": 20.05,
+      "ko2025_level": "어려움",
+      "self_entailment_failures": "329 문장 중 92건(28.0%) 이 자기 자신에게 함의되지 않음. 서술문 90건 / 서식항목 2건",
+      "cause": "추출 과정에서 여러 섹션이 한 덩어리로 뭉친 장문. 실패 문장 길이 중앙값 110자 이상(저장 시 잘린 상한), 문서 평균 85.5자",
+      "interpretation": "Identity baseline 을 통해 evaluator 의 self-comparison behavior 와 구조적 특성을 확인했다. 이 값을 ceiling(상한)으로 부르지 않는다 — HARI 가 83.64 로 이보다 높다. Grounding 은 충실도와 '문장다움' 을 함께 반영한다."
+    },
+
+    "prompt_and_structure": {
+      "prompts": "P0~P4 전부 기각. 용어보존 상승이 복사유사도 상승(0.30→0.73)을 동반",
+      "section_vs_whole": "Grounding 기준으로 13문서 모두 whole-document 방식이 우세 또는 동률이었으며, 다른 지표에서는 trade-off 가 관찰됐다",
+      "max_tokens": "4096→8192 로 늘려도 출력 글자수 완전 동일. 토큰 한도가 아니라 모델의 자기 압축",
+      "protected_span": {
+        "verdict": "생성 단계 미채택, 검증 계층으로 전환",
+        "achieved": "수치보존 100%, 수치환각 0건, 빈칸보존 100%",
+        "cost": "Copy similarity 0.30 → 0.69, Grounding −9.24 (CI [−12.9, −5.5]), 어절/문장 +1.99",
+        "basis": "fail-closed 문서 제외 짝지은 비교 + 문서 클러스터 부트스트랩"
+      }
+    },
+
+    "korean_validator": {
+      "model": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+      "retrieval": "문자 2-gram Jaccard 상위 5",
+      "test_set": "오염 8종 주입, 777 케이스, 13문서",
+      "improvement": "동일 Specificity 96.6% 조건에서 평균 +27.7%p",
+      "known_bottleneck": "TERM_SWAP 은 Recall@5 100.0% 인데 최종 탐지 47.5%. 병목은 retrieval 이 아니라 NLI 판정"
+    },
+
+    "retriever_comparison": {
+      "unit": "777 케이스 전수, 동일 Specificity 96.6%",
+      "macro_detection": {"char2gram": 85.5, "ko-sroberta": 82.9, "scibert": 78.9, "all_chunks": 8.6},
+      "verdict": "char2gram k=5 유지",
+      "robustness": "문서별 ko-sroberta 우세 0문서 / char2gram 우세 7문서 / 동률 6문서. 문서 클러스터 부트스트랩 95% CI [−4.61, −1.05]",
+      "k_sensitivity": "k=1/3/5/10 전부 char2gram 우세"
+    },
+
+    "translation_validator": {
+      "finding": "번역 누락은 정방향으로 탐지 불가",
+      "auroc_forward": {"en": 0.488, "zh": 0.516, "ja": 0.550},
+      "auroc_reverse": {"en": 0.907, "zh": 0.915, "ja": 0.889},
+      "route_comparison_bidirectional_min": {"A_hari_then_translate": 64.87, "B_english_pivot_medgemma": 63.16, "C_translate_only_control": 83.65},
+      "note": "대조군 C 가 모든 보존 지표에서 1위. 평이화는 원문 보존 측면에서 순손실이며, 그 대가는 이해도로 입증되어야 한다(미측정)"
+    },
+
+    "terminology": {
+      "candidate_pool": 95,
+      "pool_composition": "MED_TERMS(41) ∪ anatomy(41) ∪ TERM_GROUPS(43) ∪ 접미사 규칙 동적 추출",
+      "pool_caveat": "자동 후보이며 gold extractor 가 아니다. term_candidates.csv 의 valid 열 검토가 선행되어야 확정된다. '위'·'뼈'·'폐' 같은 1자 오탐이 포함되어 있다",
+      "attachable_in_hari_output": 79,
+      "occurrence_status": {
+        "total": 250,
+        "exact_retained": 167,
+        "explained_in_source": 27,
+        "explained_by_model": 5,
+        "variant_form": 10,
+        "absent": 41
+      },
+      "integrity": {
+        "primary": "human_adjudicated",
+        "conservative_pct": 79.6,
+        "human_adjudicated_pct": 82.4,
+        "upper_bound_all_variants_pct": 83.6,
+        "formula": "(199 + 7) / 250",
+        "basis": "variant_form 10건 전수 수동 검토. equivalent=1 7건, equivalent=0 3건"
+      },
+      "variant_review": {
+        "equivalent": "심근경색증 → 심근경색 7건 (6문서)",
+        "non_equivalent": [
+          {"case": "신경 → 신경손상", "reason": "포함관계 규칙의 오탐. 원문의 신경반사(마취 설명)와 출력의 신경손상(합병증)은 다른 문맥"},
+          {"case": "정맥부위마취 → 부위마취", "reason": "나열 항목에서 세부 마취법이 실제로 빠짐. 내용상 omission"},
+          {"case": "폐합병증 → 합병증", "reason": "장기 특이성 소실. 일반 합병증으로 넓어짐"}
+        ],
+        "methodological_finding": "10건 중 3건(30%)이 동등하지 않았다. 자동 포함관계 판정만으로 integrity 를 계산하면 과대평가된다"
+      },
+      "hari_own_explanation_pct": 2.0,
+      "hari_own_explanation_basis": "5 / 250 occurrence. doc1 3건, doc3 2건. 나머지 11문서에서는 0건",
+      "top20_surface_lexical_retention_pct": 39.62,
+      "metric_separation": "Top-20 surface lexical retention 은 prompt_ladder.extract_terms() 의 임의 장단어 상위 20개 문자열 잔존율이다. terminology integrity 와 다른 지표이며 혼용하지 않는다"
+    },
+
+    "glossary_v105": {
+      "status": "FROZEN",
+      "entries_verified": 7,
+      "terms": ["합병증", "감염", "마취", "색전증", "수혈", "심근경색증", "출혈"],
+      "pending": [{"term": "후유증", "blocker": "표준국어대사전 개별 entry URL 미확인", "source_verified": false, "explanation_verified": true}],
+      "coverage_target_level_pct": 100.0,
+      "coverage_basis": "50 / 50 target. 분모는 (문서 x 용어) 쌍 중 첫등장 규칙 적용 후 삽입 가능했던 것",
+      "coverage_occurrence_level_pct": 34.6,
+      "incorrect_insertions": 0,
+      "incorrect_kinds_checked": ["duplicate_insertion", "substring_false_positive", "double_parenthetical", "insertion_missing"],
+      "grounding_A": 83.63,
+      "grounding_E_all": 82.46,
+      "grounding_cost_pp": -1.17,
+      "grounding_statement": "50건의 검증된 설명 삽입과 함께 관찰된 Grounding cost 는 −1.17%p 였다. 사전에 허용 임계값을 정하지 않았으므로 '허용 범위' 로 단정하지 않는다",
+      "length_increase_pct": 5.76,
+      "wps_A": 9.00,
+      "wps_E": 9.39,
+      "sentence_boundary": "13문서 전부 A 의 문장 경계 유지. 신규 집계 문장은 삽입으로 길어진 목록 항목",
+      "v1_to_v105": "6개 → 7개 확장에서 coverage 100% 와 오탐 0 유지. 삽입 37 → 50건(+35%). v1 이 특정 용어에 우연히 맞은 것이 아님이 확인됨",
+      "claim_scope": "검증된 glossary 항목에 대해 결정적 삽입이 100% 로 작동한다. '모든 의료용어가 설명됐다' 가 아니다 — 79개 대상 중 7개이므로 범위는 좁고 그 안에서 완전하다"
+    },
+
+    "simplicity_ko2025": {
+      "status": "FROZEN",
+      "formula": "이독성 지수 = 61.994 − 0.261 × 중급이상어휘비율 − 1.045 × 평균어절수",
+      "direction": "값이 높을수록 쉬움 (종속변수 = 학습자 성적)",
+      "source": "고승연(2025), 「제2언어 학습자를 위한 한국어 읽기 텍스트 이독성 공식 개발 및 수준 환산」, 새국어교육 143, pp.245-272, DOI 10.15734/koed..143.202506.245",
+      "model_fit": "R=.993, R2=.986, adj R2=.982, F(2,12)=253.87, p<.001",
+      "vocabulary_source": "국립국어원 2017년 국제 통용 한국어 표준 교육과정 적용 연구(4단계), 김중섭 외 13명(2017). 원본 10,635 항목 → 정규화 후 10,013 표제어. 중급 이상(3~6급) 8,228",
+      "reproduction_check": "논문 [표 7] TOPIK 지문 5건 대입. 3건 완전 일치, 2건 ±0.04 (논문 반올림 차이)",
+      "level_mapping": ">=45 쉬움 / 35-44.99 보통 / <35 어려움",
+      "unresolved": "논문에 미등재 어휘 처리 방식이 명시되지 않음. policy A(미등재=중급이상) / B(분모 제외) 를 병기한다",
+
+      "final_values_v105": {
+        "policy": "A (미등재=중급이상)",
+        "identity": {"ko2025": 20.05, "level": "어려움"},
+        "A_hari_p0": {"ko2025": 35.46, "level": "보통", "mid_vocab_pct": 65.63, "wps": 9.00},
+        "E_hari_p0_plus_glossary_v105": {"ko2025": 35.05, "level": "보통", "mid_vocab_pct": 65.61, "wps": 9.391538461538461},
+        "A_to_E_decomposition": {
+          "mid_vocab_change_pp": -0.02,
+          "mid_vocab_index_contribution": 0.005,
+          "wps_change": 0.39,
+          "wps_index_contribution": -0.409,
+          "total_index_change": -0.41,
+          "checksum": "0.005 + (-0.409) = -0.404 ≈ -0.41"
+        },
+        "interpretation": "Glossary 삽입의 이독성 변화는 거의 전부 문장 길이 항에서 왔다. 어휘 항은 −0.02%p 로 사실상 움직이지 않았다. 설명문 자체에 중급 이상 어휘(미생물, 통증, 감각, 처치, 혈관)가 포함되기 때문이다. Glossary 는 이해를 돕지만 Ko2025 어휘 지표로는 측정되지 않는다"
+      },
+
+      "identity_to_A_decomposition": {
+        "total_gain": 15.42,
+        "from_vocabulary": 1.21,
+        "from_sentence_length": 14.20,
+        "sentence_length_share_pct": 92,
+        "note": "네 조건(P0/P4 × Protected OFF/ON) 모두에서 문장길이 몫이 90% 이상이었다. 프롬프트로 어휘 축을 움직이는 방식은 작동하지 않았다"
+      }
+    }
+  },
+
+  "self_found_bugs": [
+    {"id": 1, "bug": "tau* 선택 규칙 최소/최대 반대", "impact": "탐지율 12%p 손해"},
+    {"id": 2, "bug": "LOCAL 을 오라클로 오해", "impact": "결론 1건 철회"},
+    {"id": 3, "bug": "정렬률 순환 논리", "impact": "결론 1건 철회"},
+    {"id": 4, "bug": "enable_thinking=False 누락", "impact": "영어 사고과정 혼입, 초기 실행 폐기"},
+    {"id": 5, "bug": "교차 언어 검색 미작동 — 한-영 문자 n-gram Jaccard 전부 0.000", "impact": "번역 검증 점수 24~35 → 70~93"},
+    {"id": 6, "bug": "retrieval gold mapping 불일치 — 정답 생성과 평가의 전처리가 달라 sent_id 어긋남", "impact": "평가 대상 74→777건, char2gram R@1 0.0→89.7%. ko-sroberta '+5.5%p 개선' 이 −2.6%p 로 역전"},
+    {"id": 7, "bug": "수치보존 측정 버그 — '1 시간' 을 '1시간' 으로 추출한 뒤 원문에서 찾아 불일치", "impact": "Identity 79.18% → 보정 후 100.0%. 원문 띄어쓰기를 보존한 텍스트가 벌받는 구조였음"}
+  ],
+
+  "reporting_rules": {
+    "corrections_required": [
+      {"old": "용어보존 39.62%", "new": "Top-20 surface lexical retention 39.62%. terminology integrity 는 82.4%", "reason": "extract_terms() 는 의료용어 추출기가 아니라 임의 장단어 상위 20개. 'HARI 가 용어를 60% 잃는다' 는 서술은 폐기"},
+      {"old": "term_explain_rate 11.16% (HARI 설명 능력)", "new": "HARI 자체 생성 설명 2.0% (5/250 occurrence)", "reason": "11.16% 는 원문 서식(신장질환(부종 등))을 상당 부분 세고 있으며 type-level 이다"},
+      {"old": "CometKiwi 갑상선→식도 오역 −0.006, Thực quản 0.8810 > Tuyến giáp 0.8488", "new": "해당 실험은 존재하지 않는다. 유효한 근거는 채점 방식(문서 단위 vs 청크 단위) 간 최대 0.19 편차(doc2 영어 0.5153 vs 0.7068, 40건 중 4건 0.10 이상)", "reason": "코드와 결과 파일 확인 결과 오역 실험이 수행된 바 없음"},
+      {"old": "Identity baseline 으로 evaluator ceiling(74.00) 규명", "new": "Identity baseline 을 통해 evaluator 의 self-comparison behavior 와 구조적 특성을 확인", "reason": "HARI 가 83.64 로 74.00 보다 높으므로 74.00 은 상한이 될 수 없다"},
+      {"old": "섹션분할 13문서 전부 통짜 우세", "new": "Grounding 기준으로 13문서 모두 whole-document 방식이 우세 또는 동률이었으며, 다른 지표에서는 trade-off 가 관찰됐다", "reason": "Coverage 와 lexical retention 에서는 section 쪽이 높았다"},
+      {"old": "Glossary Grounding −1.17%p 는 허용 범위", "new": "50건의 검증된 설명 삽입과 함께 관찰된 Grounding cost 는 −1.17%p 였다", "reason": "사전에 허용 임계값을 정하지 않았으므로 단정하지 않는다"}
+    ],
+    "forbidden_claims": [
+      "readability 가 좋아졌으므로 comprehension 이 향상된다",
+      "automatic metric 으로 L2 환자 이해를 입증했다",
+      "소규모 pilot 결과의 일반화",
+      "terminology integrity 와 Top-20 surface lexical retention 의 혼용",
+      "단일 총점으로 route 우열 판단",
+      "Identity Grounding 74.00 을 ceiling 이라고 부르기"
+    ],
+    "limitations_to_state": [
+      "13문서, 단일 기관(경기도의료원). 부트스트랩 CI 가 넓다",
+      "L2 화자 이해도를 측정하지 않았다. 자동 지표와 실제 이해의 상관은 미검증",
+      "Glossary 는 79개 대상 중 7개. 범위는 좁고 그 안에서 완전하다",
+      "candidate pool 95개는 자동 후보이며 사람 검토 전 gold 가 아니다",
+      "Ko2025 미등재 어휘 처리 방식이 논문에 없어 policy A/B 를 병기한다",
+      "absent 41건(비동등 3건 포함 시 44건)의 omitted/paraphrased/substituted 세분은 미실시"
+    ]
+  },
+
+  "classification_of_further_work": {
+    "SARI": "후속 연구 — Human reference 30~50문장 선행 필요",
+    "L2 사용자 실험": "후속 연구 — IRB 필요. 이 프로젝트의 핵심 한계이자 다음 연구 주제",
+    "의료전문가 평가": "있으면 좋음 — glossary 7개는 상급종합병원 출처 기반이라 최소 요건 충족",
+    "추가 모델 (Qwen 등)": "불필요 — HARI 가 이미 Qwen3-8B 기반",
+    "추가 retriever": "불필요 — 4방식 비교 + 부트스트랩 CI 완료. 병목이 NLI 판정임이 확정",
+    "더 많은 glossary 용어": "후속 연구 — 선형 확장이며 새 정보 없음",
+    "더 많은 문서 실험": "있으면 좋음 — 단일 기관 한계는 명시로 처리 가능"
+  },
+
+  "next_phase": {
+    "research": "없음. FROZEN",
+    "pipeline_integration": [
+      "공통 스키마 확정 (최우선 — UI 가 여기에 의존)",
+      "①~⑥ 모듈화",
+      "실행기 (python -m pipeline.runner --pdf ...)",
+      "Glossary 를 ③ 다음 후처리 계층으로 편입",
+      "Protected Span 을 ④ 검증 계층으로 전환 (생성 아님)",
+      "13문서 end-to-end 테스트"
+    ],
+    "ui": [
+      "Streamlit 3열 화면 (원문 / 쉬운 한국어 / 번역)",
+      "검증 결과 표시 — [미기재], 근거 없는 문장, 수치환각",
+      "Glossary tooltip 옵션 (--render none 으로 provenance 만 사용)"
+    ],
+    "report": [
+      "발표 자료 정정 6건 (reporting_rules.corrections_required)",
+      "Phase 1·2 + Glossary 통합 보고서",
+      "README + 팀 기여 분리",
+      "한계 절 (limitations_to_state)"
+    ]
+  },
+
+  "conclusion": "추가 연구 실험 없이 전체 Research Freeze. 이후는 제품화 단계 — ①~⑥ 통합 → 13문서 E2E → UI 연결 → 결과표/README → 보고서 → 발표자료."
+}
