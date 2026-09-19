@@ -1,0 +1,731 @@
+{
+  "source": "/home/hufs/이윤우/phase2_metrics.json",
+  "boot": 4000,
+  "fail_closed": {
+    "D P4/ON": [
+      "doc10",
+      "doc11",
+      "doc14"
+    ],
+    "B P0/ON": [
+      "doc5"
+    ]
+  },
+  "pairs": [
+    {
+      "pair": "A:B",
+      "n": 12,
+      "excluded": [
+        "doc5"
+      ],
+      "metrics": {
+        "ground": {
+          "label": "Grounding",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 85.333,
+          "mean_b": 76.092,
+          "diff": -9.242,
+          "ci95": [
+            -12.892,
+            -5.508
+          ],
+          "verdict": "악화"
+        },
+        "cover": {
+          "label": "Coverage",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 62.633,
+          "mean_b": 75.45,
+          "diff": 12.817,
+          "ci95": [
+            7.733,
+            18.183
+          ],
+          "verdict": "개선"
+        },
+        "term_keep": {
+          "label": "용어 보존",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 40.417,
+          "mean_b": 81.667,
+          "diff": 41.25,
+          "ci95": [
+            32.917,
+            50.417
+          ],
+          "verdict": "개선"
+        },
+        "num_keep": {
+          "label": "수치 보존",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 99.408,
+          "mean_b": 100.0,
+          "diff": 0.592,
+          "ci95": [
+            0.0,
+            1.775
+          ],
+          "verdict": "판단보류"
+        },
+        "n_halluc": {
+          "label": "수치 환각",
+          "direction": "lower",
+          "n": 12,
+          "mean_a": 0.167,
+          "mean_b": 0.0,
+          "diff": -0.167,
+          "ci95": [
+            -0.417,
+            0.0
+          ],
+          "verdict": "판단보류"
+        },
+        "ko2025_A": {
+          "label": "L2 이독성 A",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 35.411,
+          "mean_b": 32.492,
+          "diff": -2.919,
+          "ci95": [
+            -4.037,
+            -1.884
+          ],
+          "verdict": "악화"
+        },
+        "ko2025_B": {
+          "label": "L2 이독성 B",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 38.59,
+          "mean_b": 36.069,
+          "diff": -2.521,
+          "ci95": [
+            -3.631,
+            -1.462
+          ],
+          "verdict": "악화"
+        },
+        "mid_vocab_A": {
+          "label": "중급이상어휘 A",
+          "direction": "lower",
+          "n": 12,
+          "mean_a": 65.519,
+          "mean_b": 68.73,
+          "diff": 3.211,
+          "ci95": [
+            1.925,
+            4.789
+          ],
+          "verdict": "악화"
+        },
+        "mid_vocab_B": {
+          "label": "중급이상어휘 B",
+          "direction": "lower",
+          "n": 12,
+          "mean_a": 53.345,
+          "mean_b": 55.023,
+          "diff": 1.677,
+          "ci95": [
+            0.493,
+            2.947
+          ],
+          "verdict": "악화"
+        },
+        "words_per_sent": {
+          "label": "어절/문장",
+          "direction": "lower",
+          "n": 12,
+          "mean_a": 9.073,
+          "mean_b": 11.068,
+          "diff": 1.994,
+          "ci95": [
+            1.026,
+            3.089
+          ],
+          "verdict": "악화"
+        },
+        "long_sent_ratio": {
+          "label": "긴문장 비율",
+          "direction": "lower",
+          "n": 12,
+          "mean_a": 0.152,
+          "mean_b": 3.226,
+          "diff": 3.074,
+          "ci95": [
+            1.427,
+            4.776
+          ],
+          "verdict": "악화"
+        },
+        "term_explain_rate": {
+          "label": "용어 설명율",
+          "direction": "higher",
+          "n": 12,
+          "mean_a": 11.333,
+          "mean_b": 9.983,
+          "diff": -1.35,
+          "ci95": [
+            -4.175,
+            0.758
+          ],
+          "verdict": "판단보류"
+        },
+        "copy_similarity": {
+          "label": "Copy 유사도",
+          "direction": "info",
+          "n": 12,
+          "mean_a": 0.301,
+          "mean_b": 0.695,
+          "diff": 0.394,
+          "ci95": [
+            0.31,
+            0.483
+          ],
+          "verdict": "참고"
+        }
+      }
+    },
+    {
+      "pair": "C:D",
+      "n": 10,
+      "excluded": [
+        "doc10",
+        "doc11",
+        "doc14"
+      ],
+      "metrics": {
+        "ground": {
+          "label": "Grounding",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 75.02,
+          "mean_b": 85.22,
+          "diff": 10.2,
+          "ci95": [
+            4.85,
+            15.5
+          ],
+          "verdict": "개선"
+        },
+        "cover": {
+          "label": "Coverage",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 80.68,
+          "mean_b": 78.17,
+          "diff": -2.51,
+          "ci95": [
+            -7.72,
+            3.04
+          ],
+          "verdict": "판단보류"
+        },
+        "term_keep": {
+          "label": "용어 보존",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 37.5,
+          "mean_b": 65.0,
+          "diff": 27.5,
+          "ci95": [
+            15.5,
+            40.0
+          ],
+          "verdict": "개선"
+        },
+        "num_keep": {
+          "label": "수치 보존",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 99.23,
+          "mean_b": 100.0,
+          "diff": 0.77,
+          "ci95": [
+            0.0,
+            2.31
+          ],
+          "verdict": "판단보류"
+        },
+        "n_halluc": {
+          "label": "수치 환각",
+          "direction": "lower",
+          "n": 10,
+          "mean_a": 0.2,
+          "mean_b": 0.0,
+          "diff": -0.2,
+          "ci95": [
+            -0.6,
+            0.0
+          ],
+          "verdict": "판단보류"
+        },
+        "ko2025_A": {
+          "label": "L2 이독성 A",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 34.852,
+          "mean_b": 28.377,
+          "diff": -6.475,
+          "ci95": [
+            -9.184,
+            -3.901
+          ],
+          "verdict": "악화"
+        },
+        "ko2025_B": {
+          "label": "L2 이독성 B",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 39.583,
+          "mean_b": 32.476,
+          "diff": -7.107,
+          "ci95": [
+            -10.123,
+            -4.213
+          ],
+          "verdict": "악화"
+        },
+        "mid_vocab_A": {
+          "label": "중급이상어휘 A",
+          "direction": "lower",
+          "n": 10,
+          "mean_a": 66.988,
+          "mean_b": 66.649,
+          "diff": -0.339,
+          "ci95": [
+            -1.753,
+            1.093
+          ],
+          "verdict": "판단보류"
+        },
+        "mid_vocab_B": {
+          "label": "중급이상어휘 B",
+          "direction": "lower",
+          "n": 10,
+          "mean_a": 48.873,
+          "mean_b": 50.948,
+          "diff": 2.075,
+          "ci95": [
+            -0.196,
+            4.525
+          ],
+          "verdict": "판단보류"
+        },
+        "words_per_sent": {
+          "label": "어절/문장",
+          "direction": "lower",
+          "n": 10,
+          "mean_a": 9.24,
+          "mean_b": 15.523,
+          "diff": 6.283,
+          "ci95": [
+            3.84,
+            8.777
+          ],
+          "verdict": "악화"
+        },
+        "long_sent_ratio": {
+          "label": "긴문장 비율",
+          "direction": "lower",
+          "n": 10,
+          "mean_a": 0.559,
+          "mean_b": 6.669,
+          "diff": 6.11,
+          "ci95": [
+            3.0,
+            9.33
+          ],
+          "verdict": "악화"
+        },
+        "term_explain_rate": {
+          "label": "용어 설명율",
+          "direction": "higher",
+          "n": 10,
+          "mean_a": 2.93,
+          "mean_b": 8.71,
+          "diff": 5.78,
+          "ci95": [
+            0.72,
+            10.3
+          ],
+          "verdict": "개선"
+        },
+        "copy_similarity": {
+          "label": "Copy 유사도",
+          "direction": "info",
+          "n": 10,
+          "mean_a": 0.298,
+          "mean_b": 0.524,
+          "diff": 0.226,
+          "ci95": [
+            0.118,
+            0.363
+          ],
+          "verdict": "참고"
+        }
+      }
+    },
+    {
+      "pair": "A:C",
+      "n": 13,
+      "excluded": [],
+      "metrics": {
+        "ground": {
+          "label": "Grounding",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 83.638,
+          "mean_b": 76.885,
+          "diff": -6.754,
+          "ci95": [
+            -12.6,
+            -1.7
+          ],
+          "verdict": "악화"
+        },
+        "cover": {
+          "label": "Coverage",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 63.2,
+          "mean_b": 77.8,
+          "diff": 14.6,
+          "ci95": [
+            9.415,
+            19.808
+          ],
+          "verdict": "개선"
+        },
+        "term_keep": {
+          "label": "용어 보존",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 39.615,
+          "mean_b": 37.692,
+          "diff": -1.923,
+          "ci95": [
+            -8.846,
+            5.0
+          ],
+          "verdict": "판단보류"
+        },
+        "num_keep": {
+          "label": "수치 보존",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 99.454,
+          "mean_b": 99.408,
+          "diff": -0.046,
+          "ci95": [
+            -1.777,
+            1.638
+          ],
+          "verdict": "판단보류"
+        },
+        "n_halluc": {
+          "label": "수치 환각",
+          "direction": "lower",
+          "n": 13,
+          "mean_a": 0.154,
+          "mean_b": 0.154,
+          "diff": 0.0,
+          "ci95": [
+            -0.308,
+            0.385
+          ],
+          "verdict": "판단보류"
+        },
+        "ko2025_A": {
+          "label": "L2 이독성 A",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 35.458,
+          "mean_b": 34.116,
+          "diff": -1.342,
+          "ci95": [
+            -2.877,
+            -0.136
+          ],
+          "verdict": "악화"
+        },
+        "ko2025_B": {
+          "label": "L2 이독성 B",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 38.658,
+          "mean_b": 38.745,
+          "diff": 0.087,
+          "ci95": [
+            -1.432,
+            1.392
+          ],
+          "verdict": "판단보류"
+        },
+        "mid_vocab_A": {
+          "label": "중급이상어휘 A",
+          "direction": "lower",
+          "n": 13,
+          "mean_a": 65.632,
+          "mean_b": 67.462,
+          "diff": 1.831,
+          "ci95": [
+            0.136,
+            3.524
+          ],
+          "verdict": "악화"
+        },
+        "mid_vocab_B": {
+          "label": "중급이상어휘 B",
+          "direction": "lower",
+          "n": 13,
+          "mean_a": 53.378,
+          "mean_b": 49.738,
+          "diff": -3.639,
+          "ci95": [
+            -5.745,
+            -1.514
+          ],
+          "verdict": "개선"
+        },
+        "words_per_sent": {
+          "label": "어절/문장",
+          "direction": "lower",
+          "n": 13,
+          "mean_a": 9.0,
+          "mean_b": 9.827,
+          "diff": 0.827,
+          "ci95": [
+            -0.133,
+            2.047
+          ],
+          "verdict": "판단보류"
+        },
+        "long_sent_ratio": {
+          "label": "긴문장 비율",
+          "direction": "lower",
+          "n": 13,
+          "mean_a": 0.14,
+          "mean_b": 1.59,
+          "diff": 1.45,
+          "ci95": [
+            0.032,
+            3.405
+          ],
+          "verdict": "악화"
+        },
+        "term_explain_rate": {
+          "label": "용어 설명율",
+          "direction": "higher",
+          "n": 13,
+          "mean_a": 11.162,
+          "mean_b": 3.023,
+          "diff": -8.138,
+          "ci95": [
+            -12.969,
+            -3.062
+          ],
+          "verdict": "악화"
+        },
+        "copy_similarity": {
+          "label": "Copy 유사도",
+          "direction": "info",
+          "n": 13,
+          "mean_a": 0.299,
+          "mean_b": 0.303,
+          "diff": 0.004,
+          "ci95": [
+            -0.045,
+            0.058
+          ],
+          "verdict": "참고"
+        }
+      }
+    },
+    {
+      "pair": "B:D",
+      "n": 9,
+      "excluded": [
+        "doc10",
+        "doc11",
+        "doc14",
+        "doc5"
+      ],
+      "metrics": {
+        "ground": {
+          "label": "Grounding",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 73.6,
+          "mean_b": 85.244,
+          "diff": 11.644,
+          "ci95": [
+            3.856,
+            19.567
+          ],
+          "verdict": "개선"
+        },
+        "cover": {
+          "label": "Coverage",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 75.0,
+          "mean_b": 77.411,
+          "diff": 2.411,
+          "ci95": [
+            -6.1,
+            12.511
+          ],
+          "verdict": "판단보류"
+        },
+        "term_keep": {
+          "label": "용어 보존",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 82.778,
+          "mean_b": 61.111,
+          "diff": -21.667,
+          "ci95": [
+            -30.0,
+            -11.667
+          ],
+          "verdict": "악화"
+        },
+        "num_keep": {
+          "label": "수치 보존",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 100.0,
+          "mean_b": 100.0,
+          "diff": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "verdict": "판단보류"
+        },
+        "n_halluc": {
+          "label": "수치 환각",
+          "direction": "lower",
+          "n": 9,
+          "mean_a": 0.0,
+          "mean_b": 0.0,
+          "diff": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "verdict": "판단보류"
+        },
+        "ko2025_A": {
+          "label": "L2 이독성 A",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 32.683,
+          "mean_b": 29.113,
+          "diff": -3.57,
+          "ci95": [
+            -6.033,
+            -1.572
+          ],
+          "verdict": "악화"
+        },
+        "ko2025_B": {
+          "label": "L2 이독성 B",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 36.241,
+          "mean_b": 33.224,
+          "diff": -3.017,
+          "ci95": [
+            -5.513,
+            -1.057
+          ],
+          "verdict": "악화"
+        },
+        "mid_vocab_A": {
+          "label": "중급이상어휘 A",
+          "direction": "lower",
+          "n": 9,
+          "mean_a": 68.477,
+          "mean_b": 66.308,
+          "diff": -2.169,
+          "ci95": [
+            -4.072,
+            -0.342
+          ],
+          "verdict": "개선"
+        },
+        "mid_vocab_B": {
+          "label": "중급이상어휘 B",
+          "direction": "lower",
+          "n": 9,
+          "mean_a": 54.841,
+          "mean_b": 50.563,
+          "diff": -4.278,
+          "ci95": [
+            -6.523,
+            -1.963
+          ],
+          "verdict": "개선"
+        },
+        "words_per_sent": {
+          "label": "어절/문장",
+          "direction": "lower",
+          "n": 9,
+          "mean_a": 10.948,
+          "mean_b": 14.903,
+          "diff": 3.956,
+          "ci95": [
+            2.077,
+            6.237
+          ],
+          "verdict": "악화"
+        },
+        "long_sent_ratio": {
+          "label": "긴문장 비율",
+          "direction": "lower",
+          "n": 9,
+          "mean_a": 3.217,
+          "mean_b": 6.299,
+          "diff": 3.082,
+          "ci95": [
+            0.523,
+            5.83
+          ],
+          "verdict": "악화"
+        },
+        "term_explain_rate": {
+          "label": "용어 설명율",
+          "direction": "higher",
+          "n": 9,
+          "mean_a": 10.378,
+          "mean_b": 8.667,
+          "diff": -1.711,
+          "ci95": [
+            -7.133,
+            1.333
+          ],
+          "verdict": "판단보류"
+        },
+        "copy_similarity": {
+          "label": "Copy 유사도",
+          "direction": "info",
+          "n": 9,
+          "mean_a": 0.704,
+          "mean_b": 0.472,
+          "diff": -0.231,
+          "ci95": [
+            -0.349,
+            -0.115
+          ],
+          "verdict": "참고"
+        }
+      }
+    }
+  ]
+}
