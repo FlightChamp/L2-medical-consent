@@ -82,12 +82,16 @@ def slug(model: str) -> str:
 # ===========================================================================
 
 class Generator:
-    def __init__(self, model_id: str, arch: str, gpu: int, cap: int):
+    def __init__(self, model_id: str, arch: str, gpu: int, cap: int,
+                 extra: dict = None):
         import torch
         self.torch = torch
         self.arch = arch
         self.cap = cap
         self.model_id = model_id
+        # 생성 설정. 기본은 그리디(빈 dict).
+        # 반복 억제는 모델마다 반대 방향으로 작용하므로 명시할 때만 적용한다.
+        self.extra = extra or {}
         print(f"[GEN] {model_id}  ({arch})  → cuda:{gpu}", flush=True)
 
         if arch == "causal":
@@ -139,8 +143,7 @@ class Generator:
             with torch.no_grad():
                 o = self.model.generate(
                     **inp, max_new_tokens=self.cap, do_sample=False,
-                    repetition_penalty=1.1, no_repeat_ngram_size=12,
-                    pad_token_id=self.tok.eos_token_id)
+                    pad_token_id=self.tok.eos_token_id, **self.extra)
             return self.tok.decode(o[0][n_in:], skip_special_tokens=True).strip()
 
         # image-text-to-text
@@ -150,9 +153,7 @@ class Generator:
         n_in = inp["input_ids"].shape[-1]
         with torch.no_grad():
             o = self.model.generate(**inp, max_new_tokens=self.cap,
-                                    do_sample=False,
-                                    repetition_penalty=1.1,
-                                    no_repeat_ngram_size=12)
+                                    do_sample=False, **self.extra)
         return self.tok.decode(o[0][n_in:], skip_special_tokens=True).strip()
 
     def free(self):
@@ -172,7 +173,16 @@ def stage_generate(docs: List[str], outdir: str, a):
     if not todo:
         print("[GEN] 생성할 것이 없습니다 (--force 로 재생성)")
         return
-    gen = Generator(a.model, a.arch, a.gpu, a.max_new)
+    extra = {}
+    if a.rep_penalty is not None:
+        extra["repetition_penalty"] = a.rep_penalty
+    if a.no_repeat is not None:
+        extra["no_repeat_ngram_size"] = a.no_repeat
+    if extra:
+        print(f"[GEN] 생성 설정: {extra}")
+    else:
+        print("[GEN] 생성 설정: greedy (do_sample=False)")
+    gen = Generator(a.model, a.arch, a.gpu, a.max_new, extra)
     os.makedirs(outdir, exist_ok=True)
     t0 = time.time()
     for n, doc in enumerate(todo, 1):
@@ -188,6 +198,9 @@ def stage_generate(docs: List[str], outdir: str, a):
         with open(path_of(outdir, doc), "w", encoding="utf-8") as f:
             json.dump({"doc": doc, "model": a.model, "arch": a.arch,
                        "cond": a.cond, "prompt": PROMPTS[a.cond],
+                       "gen_config": {"do_sample": False,
+                                      "max_new_tokens": a.max_new,
+                                      **(gen.extra or {})},
                        "src": body, "out": out, "out_raw": raw,
                        "meta_removed": removed},
                       f, ensure_ascii=False, indent=2)
@@ -330,6 +343,10 @@ def main():
     ap.add_argument("--batch", type=int, default=128)
     ap.add_argument("--max-new", type=int, default=4096,
                     help="MedGemma 출력 한도는 8192 입니다")
+    ap.add_argument("--rep-penalty", type=float, default=None,
+                    help="지정할 때만 적용. 기본은 그리디")
+    ap.add_argument("--no-repeat", type=int, default=None,
+                    help="지정할 때만 적용. 기본은 그리디")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--eval-only", action="store_true")
     a = ap.parse_args()
