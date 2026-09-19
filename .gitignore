@@ -106,3 +106,22 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# ── 2026-09 실험 산출물 ──────────────────────────────────
+outputs_2x2/
+outputs_glossary/
+outputs_glossary_v105/
+term_status_review.csv
+variant_review.csv
+variant_review.csv.bak
+term_candidates.csv
+identity_audit.json
+term_audit.json
+patch_*.py
+fill_variant_review.py
+*.bak_*
+eval_A_vs_E_v105.json
+eval_A_vs_E_per_doc.csv
+eval_A_vs_E_v105_per_doc.csv
+variant_review_result.json
+blank_check.png
