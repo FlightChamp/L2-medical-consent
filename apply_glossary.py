@@ -89,6 +89,11 @@ def load_A(doc: str, pattern: str = HARI_P0) -> Optional[str]:
         return json.load(f).get("out")
 
 
+def _entry_source(e: dict) -> str:
+    """출처 이름. v1.1 부터 source_name, 그 이전은 source 를 쓴다."""
+    return e.get("source_name") or e.get("source") or ""
+
+
 def load_glossary(path: str) -> Tuple[dict, List[dict]]:
     with open(path, encoding="utf-8") as f:
         g = json.load(f)
@@ -128,6 +133,20 @@ def find_occurrences(text: str, terms: List[str]) -> List[Tuple[int, int, str]]:
     return kept
 
 
+def inside_parenthesis(text: str, pos: int) -> bool:
+    """pos 가 괄호 안쪽인지. 앞쪽의 여는/닫는 괄호 수를 세어 판정한다.
+
+    원문 '합병증(후유증)' 에서 후유증의 위치는 괄호 안이므로 True.
+    여기에 설명을 넣으면 괄호가 중첩되어 서식이 깨진다."""
+    depth = 0
+    for ch in text[:pos]:
+        if ch in "(（":
+            depth += 1
+        elif ch in ")）":
+            depth = max(0, depth - 1)
+    return depth > 0
+
+
 def paren_after(text: str, end: int) -> Optional[str]:
     m = PAREN_AFTER.match(text[end:end + 90])
     return m.group(1).strip() if m else None
@@ -157,6 +176,17 @@ def apply(doc: str, K: str, A: str, enabled: List[dict],
             skipped.append({**rec, "reason": "not_first_occurrence"})
             continue
 
+        # 괄호 안쪽이면 삽입하지 않는다. 중첩 괄호를 만들기 때문이다.
+        # 예) 원문 '합병증(후유증)' 의 후유증
+        if inside_parenthesis(A, s):
+            skipped.append({**rec,
+                            "reason": "insertion_skipped_inside_parenthesis",
+                            "note": ("이 위치는 괄호 안쪽입니다. 설명을 넣으면 "
+                                     "괄호가 중첩되어 원문 서식이 깨집니다. "
+                                     "같은 용어가 괄호 밖에 다시 나오면 "
+                                     "그쪽에 삽입됩니다.")})
+            continue
+
         pa = paren_after(A, e)
         if pa is not None:
             # 원문에도 같은 형태가 있으면 서식에서 온 것이다
@@ -183,14 +213,19 @@ def apply(doc: str, K: str, A: str, enabled: List[dict],
     E = A
     for s, e, term, expl in sorted(plan, key=lambda x: -x[0]):
         E = E[:e] + "(" + expl + ")" + E[e:] if render == "inline" else E
+        ent = by_term[term]
+        src_name = _entry_source(ent)
         insertions.append({
             "term": term, "explanation": expl,
             "position_in_A": s, "first_occurrence": True,
             "render": render,
-            "source": by_term[term]["source"],
-            "source_url": by_term[term]["source_url"],
-            "source_type": by_term[term]["source_type"],
-            "source_scope": by_term[term].get("source_scope", "general"),
+            # 두 키를 모두 기록한다. 읽는 쪽이 어느 이름을 쓰든 깨지지 않는다.
+            "source": src_name,
+            "source_name": src_name,
+            "source_url": ent.get("source_url"),
+            "source_type": ent.get("source_type"),
+            "source_scope": ent.get("source_scope", "general"),
+            "version_added": ent.get("version_added"),
             "source_verified": True, "explanation_verified": True,
         })
     insertions.reverse()
@@ -222,6 +257,12 @@ def apply(doc: str, K: str, A: str, enabled: List[dict],
         for m in re.finditer(re.escape(t) + r"\s*[（(][^)）]*[)）]\s*[（(]", E):
             problems.append({"term": t, "kind": "double_parenthetical",
                              "context": E[m.start():m.start() + 70]})
+        # 중첩 괄호 — 삽입 결과가 다른 괄호 안에 들어간 경우
+        for m in re.finditer(re.escape(t) + r"\s*[（(]" + re.escape(x[:8]), E):
+            if inside_parenthesis(E, m.start()):
+                problems.append({"term": t, "kind": "nested_parenthesis",
+                                 "context": E[max(0, m.start() - 20):
+                                              m.start() + 50]})
 
     # ── 문장 구조 진단 ────────────────────────────────────────────────
     sa, se = Splitter.split(A), Splitter.split(E)
@@ -327,8 +368,11 @@ def main():
             json.dump({**r, "glossary_version": g.get("glossary_version"),
                        "glossary_entries_enabled":
                            [{"term": e["term"],
-                             "source_url": e["source_url"],
+                             "source_name": _entry_source(e),
+                             "source_url": e.get("source_url"),
+                             "source_type": e.get("source_type"),
                              "source_scope": e.get("source_scope"),
+                             "version_added": e.get("version_added"),
                              "source_verified": True,
                              "explanation_verified": True} for e in enabled],
                        "nature": g.get("nature")},
@@ -355,6 +399,8 @@ def main():
              if s["reason"] == "insertion_skipped_existing_parenthetical")
     nf = sum(1 for r in rows for s in r["skipped"]
              if s["reason"] == "not_first_occurrence")
+    ip = sum(1 for r in rows for s in r["skipped"]
+             if s["reason"] == "insertion_skipped_inside_parenthesis")
     al = sum(1 for r in rows for s in r["skipped"]
              if s["reason"] == "explanation_already_present")
     bad_sent = [r["doc"] for r in rows
@@ -370,6 +416,7 @@ def main():
     print("    첫 등장 아님                  " + str(nf))
     print("    원문 괄호 (source-paren)      " + str(sp))
     print("    출력에만 있는 괄호             " + str(ep))
+    print("    괄호 안쪽 (중첩 방지)          " + str(ip))
     print("    설명이 이미 존재               " + str(al))
     print("  오탐 삽입                       " + str(n_bad))
     print("  문장 수가 달라진 문서             " + str(len(bad_sent))

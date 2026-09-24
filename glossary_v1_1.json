@@ -1,0 +1,262 @@
+{
+  "glossary_version": "v1.1",
+  "created": "2026-09-24",
+  "based_on": "v1.05 (7개) + 신규 검증 4개 = 11개",
+  "pilot_scope": "coverage 확대가 deterministic insertion 안정성에 영향을 주는지 확인하는 것이 목적. 용어 수를 채우는 것이 목적이 아니다.",
+
+  "verification_semantics": {
+    "source_verified": "URL 이 실제 공식 기관 페이지이고 해당 용어를 직접 다루는지 확인된 상태.",
+    "explanation_verified": "easy_explanation 이 해당 출처의 의미를 왜곡하지 않는지 검증된 상태.",
+    "insertion_gate": "두 값이 모두 true 인 항목만 삽입한다.",
+    "independence": "두 값은 독립이다. 한쪽만 true 인 항목은 삽입하지 않는다."
+  },
+
+  "nature": "easy_explanation 은 출처 정의를 근거로 프로젝트에서 작성한 L2용 평이화 문장이다. 출처의 직접 인용문이 아니다. 발표·보고서에서도 직접 인용처럼 표시하지 않는다.",
+
+  "source_priority": [
+    "1. 국내 상급종합병원 환자교육자료 (서울아산병원 알기쉬운의학용어·질환백과·검사시술정보, 서울대학교병원 의학정보)",
+    "2. 대한의학회 / 전문학회",
+    "3. 국가건강정보포털 / 질병관리청",
+    "4. 기타 공식 자료 (국립국어원 계열 포함)"
+  ],
+
+  "insertion_rules": {
+    "gate": "source_verified 와 explanation_verified 가 모두 true",
+    "presence": "HARI 출력에 해당 용어가 실제로 존재",
+    "first_occurrence_only": "문서 내 첫 등장에만 삽입",
+    "no_duplicate": "이미 같은 설명이 붙어 있으면 삽입하지 않음",
+    "source_parenthetical": "원문에서 온 괄호가 이미 붙어 있으면 inline 삽입을 건너뛰고 insertion_skipped_source_parenthetical 로 기록. 괄호 존재를 '설명 충분' 으로 자동 판정하지 않는다.",
+    "longest_match": "긴 용어 우선. 짧은 용어가 긴 용어를 잠식하지 않음",
+    "no_substring": "다른 단어 내부에는 삽입하지 않음",
+    "josa_tolerant": "조사 결합형을 정상 출현으로 인식",
+    "one_per_occurrence": "한 occurrence 에 둘 이상의 glossary 를 적용하지 않음",
+    "no_term_replacement": "용어 자체를 삭제하거나 치환하지 않음",
+    "no_touch": "숫자·단위·부정·위험도 표현은 건드리지 않음"
+  },
+
+  "reporting_rules": {
+    "coverage_scope": "coverage 100% 는 '검증된 glossary target 내에서' 만을 뜻한다. 문서 전체 의료 용어를 덮었다는 뜻이 아니다.",
+    "no_simple_improvement_claim": "'7개에서 11개로 늘었으니 성능이 좋아졌다' 로 해석하지 않는다. glossary 의 목적은 terminology coverage 확대다.",
+    "ko2025": "Ko2025 가 소폭 떨어지는 것은 설명 삽입이 문장을 길게 만들기 때문이며 실패가 아니다.",
+    "no_comprehension_claim": "실제 L2 환자 이해도 향상을 검증했다고 표현하지 않는다.",
+    "no_generalization": "13문서 외부 일반화를 주장하지 않는다."
+  },
+
+  "entries": [
+    {
+      "term": "합병증",
+      "version_added": "v1",
+      "term_type": "medical_concept",
+      "category": "complication",
+      "easy_explanation": "병이나 치료와 관련해 새로 생기는 건강 문제",
+      "source_definition": "합병증은 어떤 질병에 관련하여 생긴 다른 질병이 생긴것으로 예를 들면 당뇨병으로 인해 망막의 혈관에 병이 생기는 당뇨병성 망막증이나 신증 등을 합병증이라고 합니다.",
+      "source_name": "서울아산병원 알기쉬운의학용어 '합병증(complication)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/easymediterm/easyMediTermDetail.do?dictId=4588",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "docs": 13, "frequency": 45
+    },
+    {
+      "term": "감염",
+      "version_added": "v1",
+      "term_type": "medical_concept",
+      "category": "complication",
+      "easy_explanation": "세균이나 바이러스 같은 미생물이 몸에 들어와 늘어나는 것",
+      "source_definition": "병을 일으킬 수 있는 세균, 바이러스 등의 미생물이 우리 몸에 들어와서 그 수가 많아지는 것을 감염이라고 합니다.",
+      "source_name": "서울아산병원 알기쉬운의학용어 '감염(infection)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/easymediterm/easyMediTermDetail.do?dictId=118",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "docs": 10, "frequency": 23
+    },
+    {
+      "term": "마취",
+      "version_added": "v1",
+      "term_type": "medical_concept",
+      "category": "procedure",
+      "easy_explanation": "약을 사용해 일정 시간 통증이나 감각을 느끼지 못하게 하는 처치",
+      "source_definition": "마취는 약물을 이용하여 일시적으로 무감각 또는 통증에 대한 인지능력 상실을 유도하는 처치법",
+      "source_name": "서울대학교병원 의학정보 '마취(anesthesia)'",
+      "source_url": "https://www.snuh.org/health/nMedInfo/nView.do?medid=BB000148",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "docs": 8, "frequency": 29
+    },
+    {
+      "term": "색전증",
+      "version_added": "v1",
+      "term_type": "medical_concept",
+      "category": "complication",
+      "easy_explanation": "피떡이나 공기, 지방 같은 물질이 혈관을 막는 상태",
+      "source_definition": "색전(embolus) — 서울아산병원 알기쉬운의학용어 항목. 색전은 피떡(혈전), 공기, 지방 등 혈관을 막을 수 있는 물질을 통칭한다.",
+      "source_name": "서울아산병원 알기쉬운의학용어 '색전(embolus)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/easymediterm/easyMediTermDetail.do?dictId=1916",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "scope_note": "일반 색전증 설명이다. 혈전만으로 제한하지 않는다. 원문 용어가 '혈전색전증' 인 경우에는 별도 term 으로 취급한다.",
+      "docs": 2, "frequency": 8
+    },
+    {
+      "term": "수혈",
+      "version_added": "v1",
+      "term_type": "medical_concept",
+      "category": "procedure",
+      "easy_explanation": "몸에 부족한 피나 필요한 피 성분을 넣어 보충하는 치료",
+      "source_definition": "수혈은 혈액이 모자라는 환자에게 혈액을 주입하는 치료 방법을 말합니다. 성분수혈은 필요한 성분만을 수혈하는 효과적인 치료 방법입니다.",
+      "source_name": "서울아산병원 검사/시술/수술정보 '수혈(Transfusion)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/management/managementDetail.do?managementId=183",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "docs": 3, "frequency": 3
+    },
+    {
+      "term": "심근경색증",
+      "version_added": "v1",
+      "term_type": "medical_concept",
+      "category": "diagnosis",
+      "easy_explanation": "심장 근육에 피가 제대로 가지 않아 심장 근육 일부가 죽는 병",
+      "source_definition": "급성 심근경색증은 심장 근육을 먹여 살리는 관상동맥이 갑작스럽게 완전히 막혀서 심장 근육이 죽어가는 질환입니다.",
+      "source_name": "서울아산병원 질환백과 '급성 심근경색증(Acute myocardial infarction)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=32111",
+      "source_type": "hospital",
+      "source_scope": "acute_myocardial_infarction",
+      "scope_note": "출처 페이지는 급성 심근경색증을 다룬다. easy_explanation 에는 급성에만 해당하는 세부사항(갑작스럽게, 완전히 막혀서)을 넣지 않고 공통 핵심 의미만 사용했다.",
+      "source_verified": true,
+      "explanation_verified": true,
+      "docs": 9, "frequency": 9
+    },
+    {
+      "term": "출혈",
+      "version_added": "v1.05",
+      "term_type": "hanja_vocabulary",
+      "category": "complication",
+      "easy_explanation": "피가 혈관 밖으로 나오는 것",
+      "source_definition": "피가 혈관 밖으로 나옴",
+      "source_name": "국립국어원 한국어기초사전 '출혈'",
+      "source_url": "https://krdict.korean.go.kr/",
+      "source_type": "government",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "explanation_provenance": "출처 정의를 거의 그대로 옮겼다. '나옴' 을 '나오는 것' 으로 바꾸어 명사구에 맞춘 것이 유일한 변경이다. 한국어기초사전은 한국어 학습자용 공식 사전이므로 L2 대상과 부합한다.",
+      "note": "1~3순위에는 '출혈' 단독 정의가 없었다. 비출혈·위장관출혈·출혈성질환 같은 복합어만 존재한다. 병원 자료에서 억지로 찾지 않고 4순위 공식 사전을 사용했다.",
+      "docs": 13, "frequency": 28
+    },
+
+    {
+      "term": "후유증",
+      "version_added": "v1.1",
+      "term_type": "medical_concept",
+      "category": "complication",
+      "easy_explanation": "병이나 다친 곳이 나은 뒤에도 남아 있는 몸의 변형이나 기능 문제",
+      "source_definition": "어떤 질병이나 외상이 치유된 후에 남는 변형 또는 기능장애입니다.",
+      "source_name": "서울아산병원 알기쉬운의학용어 '후유증(sequela)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/easymediterm/easyMediTermDetail.do?dictId=4967",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "explanation_provenance": "출처의 '변형 또는 기능장애' 를 '몸의 변형이나 기능 문제' 로 풀었다. '치유된 후' 는 '나은 뒤' 로, '질병이나 외상' 은 '병이나 다친 곳' 으로 바꾸었다. 범위를 넓히거나 좁히지 않았다.",
+      "note": "v1.05 에서는 표준국어대사전 계열 정의만 알고 개별 entry URL 을 확인하지 못해 대기 상태였다. 서울아산병원 독립 표제어를 확인해 1순위 출처로 확정했다.",
+      "docs": 13, "frequency": 13
+    },
+    {
+      "term": "배액관",
+      "version_added": "v1.1",
+      "term_type": "medical_concept",
+      "category": "procedure",
+      "easy_explanation": "상처나 수술 부위에 고인 고름, 액체, 피를 빼내려고 넣는 관",
+      "source_definition": "상처부위, 수술 및 시술부위 등 고름이나 용액, 혈액 등이 모인 것을 빼내기 위해 삽입한 관을 말합니다.",
+      "source_name": "서울아산병원 알기쉬운의학용어 '배액관(drainage tube)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/easymediterm/easyMediTermDetail.do?dictId=1522",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "explanation_provenance": "출처 정의를 거의 그대로 옮겼다. '용액' 을 '액체' 로, '혈액' 을 '피' 로, '삽입한' 을 '넣는' 으로 바꾸었다. 의미 범위는 같다.",
+      "note": "v1.05 에서는 피부간경유쓸개관배액술 페이지의 용례만 확인되어 미정이었다. 독립 표제어를 확인했다.",
+      "docs": 3, "frequency": 4
+    },
+    {
+      "term": "재발",
+      "version_added": "v1.1",
+      "term_type": "medical_concept",
+      "category": "outcome",
+      "easy_explanation": "병이 다 나은 뒤에 다시 병이 생기는 것",
+      "source_definition": "병이 다 나은 상태에서 다시 병이 생기는 것을 재발이라고 합니다.",
+      "source_name": "서울아산병원 알기쉬운의학용어 '재발(relapse)'",
+      "source_url": "https://www.amc.seoul.kr/asan/healthinfo/easymediterm/easyMediTermDetail.do?dictId=3365",
+      "source_type": "hospital",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "explanation_provenance": "출처 정의를 거의 그대로 옮겼다. '나은 상태에서' 를 '나은 뒤에' 로 바꾼 것이 유일한 변경이다.",
+      "note": "v1.05 조사에서는 '일반 한자어라 국립국어원 계열이 적합하다' 고 보아 보류했으나, 서울아산병원 독립 표제어가 확인되어 1순위 출처로 확정했다. 이전 판단을 정정한다.",
+      "docs": 3, "frequency": 6
+    },
+    {
+      "term": "골절",
+      "version_added": "v1.1",
+      "term_type": "medical_concept",
+      "category": "diagnosis",
+      "easy_explanation": "뼈가 부러진 상태",
+      "source_definition": "질병관리청 국가건강정보포털 '골절' 콘텐츠. 골절 시 뼈가 부러지며, 부러진 뼈의 날카로운 끝이 주변 근육·혈관·신경에 2차 손상을 줄 수 있다고 기술한다.",
+      "source_name": "질병관리청 국가건강정보포털 '골절'",
+      "source_url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5463",
+      "source_type": "government",
+      "source_scope": "general",
+      "source_verified": true,
+      "explanation_verified": true,
+      "explanation_provenance": "출처 페이지에 '골절' 한 줄 정의문이 별도로 제시되어 있지 않아, 본문이 일관되게 기술하는 '뼈가 부러진' 상태만을 설명으로 삼았다. 완전/불완전 구분이나 '연속성' 같은 표현은 본문에서 직접 확인하지 못해 넣지 않았다.",
+      "note": "서울아산병원 알기쉬운의학용어에는 선골절·병적골절·압박골절·균열골절 등 복합어만 있고 '골절' 단독 표제어를 확인하지 못했다. 3순위 출처를 사용했다.",
+      "docs": 3, "frequency": 4
+    }
+  ],
+
+  "rejected_v11": [
+    {
+      "term": "신경손상",
+      "verdict": "제외",
+      "reason": "독립 표제어를 확인하지 못했다. 질병관리청 외상성 척추손상 콘텐츠와 골절 콘텐츠에서 '신경 손상' 이 합병증 항목으로 언급되지만, 그 용어 자체를 정의하는 페이지가 아니다. 서울아산병원 '신경외상(neurotrauma)' 항목의 존재도 확인하지 못했다.",
+      "checked_urls": [
+        "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5207",
+        "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5463"
+      ],
+      "docs": 4, "frequency": 4
+    },
+    {
+      "term": "혈관손상",
+      "verdict": "제외",
+      "reason": "공식 직접 출처 확인 불가. '혈관 및 신경 손상' 이 골절 합병증 목록에 나오지만 '혈관손상' 을 정의한 독립 페이지를 찾지 못했다. 추정해서 채택하지 않는다.",
+      "docs": 3, "frequency": 3
+    },
+    {
+      "term": "신장질환",
+      "verdict": "제외",
+      "reason": "umbrella category 이며, 동의서에서 '신장질환(부종 등) 무 유 미상' 형태의 서식 체크 항목으로 쓰인다. 원문에 이미 괄호가 있어 insertion_skipped_source_parenthetical 대상이고, '콩팥에 생기는 병' 수준의 설명은 glossary 로서 정보 가치가 낮다.",
+      "docs": 13, "frequency": 13
+    },
+    {
+      "term": "심장질환",
+      "verdict": "제외",
+      "reason": "신장질환과 동일. '심장질환(심근경색 등) 무 유 미상' 서식 항목이며 개별 심근경색증은 이미 glossary 에 있다.",
+      "docs": 9, "frequency": 10
+    },
+    {
+      "term": "호흡기질환",
+      "verdict": "제외",
+      "reason": "신장질환과 동일. '호흡기질환(기침, 가래 등) 무 유 미상' 서식 항목이다.",
+      "docs": 4, "frequency": 4
+    }
+  ]
+}

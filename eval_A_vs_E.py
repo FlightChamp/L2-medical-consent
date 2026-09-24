@@ -267,6 +267,16 @@ def main():
         g = json.load(f)
     gl_terms = [e["term"] for e in g["entries"]
                 if e.get("source_verified") and e.get("explanation_verified")]
+    gl_version_from_E = None
+    # E 결과 파일에 기록된 glossary 가 실제로 삽입에 쓰인 것이다.
+    # --glossary 기본값과 다를 수 있으므로 그쪽을 우선한다.
+    if paths:
+        with open(paths[0], encoding="utf-8") as _f:
+            _first = json.load(_f)
+        _en = _first.get("glossary_entries_enabled")
+        if _en:
+            gl_terms = [e["term"] for e in _en]
+        gl_version_from_E = _first.get("glossary_version")
 
     audit = {}
     if os.path.exists(a.audit):
@@ -278,7 +288,7 @@ def main():
     print("=" * 100)
     print("A vs E 파일럿 — Glossary deterministic insertion")
     print("=" * 100)
-    print("  glossary " + str(g.get("glossary_version"))
+    print("  glossary " + str(gl_version_from_E or g.get("glossary_version"))
           + " / 삽입 가능 항목 " + str(len(gl_terms)) + ": " + ", ".join(gl_terms))
     print("  E 는 새 generation 이 아니라 A 의 후처리입니다.")
     if review:
@@ -549,10 +559,21 @@ def main():
         print("\n" + "=" * 100)
         print("괄호 때문에 건너뛴 사례 — '설명 충분' 으로 판정한 것이 아님")
         print("=" * 100)
+        LABEL = {
+            "insertion_skipped_source_parenthetical": "원문 괄호",
+            "insertion_skipped_existing_parenthetical": "출력 괄호",
+            "insertion_skipped_inside_parenthesis": "괄호 안쪽",
+        }
         for q in paren_cases[:12]:
-            print("  [" + q["doc"] + "] " + q["term"]
-                  + "(" + str(q["existing"])[:38] + ")"
-                  + "   원문유래=" + str(q["in_source"]))
+            kind = LABEL.get(q.get("reason"), q.get("reason", "?"))
+            line = "  [" + q["doc"] + "] " + q["term"].ljust(10) + kind
+            if q.get("existing"):
+                line += "   내용: " + str(q["existing"])[:34]
+            if q.get("in_source") is not None:
+                line += "   원문유래=" + str(q["in_source"])
+            if q.get("hint"):
+                line += "\n       문맥: " + str(q["hint"])[:74]
+            print(line)
         if len(paren_cases) > 12:
             print("  ... 외 " + str(len(paren_cases) - 12) + "건")
         print("""
