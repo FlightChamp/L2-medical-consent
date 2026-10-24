@@ -1,0 +1,651 @@
+{
+  "formula": {
+    "intercept": 61.994,
+    "coef_mid_vocab": -0.261,
+    "coef_words_per_sent": -1.045
+  },
+  "policy": "A",
+  "levels": {
+    ">=45": "쉬움",
+    "35~44.99": "보통",
+    "<35": "어려움"
+  },
+  "averages": {
+    "K": {
+      "mid_vocab": 70.26307692307692,
+      "wps": 22.58487960898787,
+      "index": 20.054137731684598
+    },
+    "A": {
+      "mid_vocab": 65.63153846153847,
+      "wps": 8.999928260465309,
+      "index": 35.45924342935221
+    },
+    "E_v105": {
+      "mid_vocab": 65.61461538461539,
+      "wps": 9.39186198924742,
+      "index": 35.05408960585183
+    },
+    "E_v11": {
+      "mid_vocab": 66.28692307692307,
+      "wps": 9.65506996195561,
+      "index": 34.603564966679464
+    }
+  },
+  "decomposition": {
+    "A → E 7개": {
+      "d_mid_vocab": -0.01692307692307793,
+      "d_wps": 0.39193372878211186,
+      "contrib_vocab": 0.00441692307692334,
+      "contrib_length": -0.40957074657730685,
+      "d_index": -0.40515382350038465,
+      "checksum": -0.40515382350038354,
+      "share_vocab": 1.0669214087009964,
+      "share_length": 98.93307859129901
+    },
+    "A → E 11개": {
+      "d_mid_vocab": 0.6553846153846052,
+      "d_wps": 0.6551417014903009,
+      "contrib_vocab": -0.17105538461538197,
+      "contrib_length": -0.6846230780573644,
+      "d_index": -0.8556784626727492,
+      "checksum": -0.8556784626727464,
+      "share_vocab": 19.990614708366454,
+      "share_length": 80.00938529163355
+    },
+    "E 7개 → E 11개": {
+      "d_mid_vocab": 0.6723076923076832,
+      "d_wps": 0.2632079727081891,
+      "contrib_vocab": -0.17547230769230532,
+      "contrib_length": -0.2750523314800576,
+      "d_index": -0.4505246391723645,
+      "checksum": -0.4505246391723629,
+      "share_vocab": 38.9484375404322,
+      "share_length": 61.0515624595678
+    },
+    "원문 → A (참고)": {
+      "d_mid_vocab": -4.6315384615384545,
+      "d_wps": -13.58495134852256,
+      "contrib_vocab": 1.2088315384615367,
+      "contrib_length": 14.196274159206075,
+      "d_index": 15.405105697667615,
+      "checksum": 15.405105697667612,
+      "share_vocab": 7.84695387480891,
+      "share_length": 92.1530461251911
+    }
+  },
+  "per_doc": [
+    {
+      "doc": "doc1",
+      "n_insertions": 6,
+      "K": {
+        "mid_vocab": 68.09,
+        "wps": 26.0,
+        "index": 17.05251,
+        "level": "어려움",
+        "n_sents": 13,
+        "n_chars": 1380,
+        "n_tokens": 329,
+        "n_mid": 97
+      },
+      "A": {
+        "mid_vocab": 63.05,
+        "wps": 9.448275862068966,
+        "index": 35.66450172413793,
+        "level": "보통",
+        "n_sents": 29,
+        "n_chars": 1158,
+        "n_tokens": 295,
+        "n_mid": 75
+      },
+      "E105": {
+        "mid_vocab": 62.81,
+        "wps": 9.709677419354838,
+        "index": 35.453977096774196,
+        "level": "보통",
+        "n_sents": 31,
+        "n_chars": 1266,
+        "n_tokens": 320,
+        "n_mid": 83
+      },
+      "E11": {
+        "mid_vocab": 64.31,
+        "wps": 10.32258064516129,
+        "index": 34.42199322580646,
+        "level": "어려움",
+        "n_sents": 31,
+        "n_chars": 1340,
+        "n_tokens": 339,
+        "n_mid": 94
+      }
+    },
+    {
+      "doc": "doc10",
+      "n_insertions": 8,
+      "K": {
+        "mid_vocab": 71.48,
+        "wps": 22.78723404255319,
+        "index": 19.525060425531915,
+        "level": "어려움",
+        "n_sents": 47,
+        "n_chars": 4079,
+        "n_tokens": 1031,
+        "n_mid": 320
+      },
+      "A": {
+        "mid_vocab": 66.8,
+        "wps": 9.933333333333334,
+        "index": 34.17886666666667,
+        "level": "어려움",
+        "n_sents": 75,
+        "n_chars": 3212,
+        "n_tokens": 774,
+        "n_mid": 210
+      },
+      "E105": {
+        "mid_vocab": 66.91,
+        "wps": 10.613333333333333,
+        "index": 33.43955666666667,
+        "level": "어려움",
+        "n_sents": 75,
+        "n_chars": 3423,
+        "n_tokens": 825,
+        "n_mid": 226
+      },
+      "E11": {
+        "mid_vocab": 67.23,
+        "wps": 10.539473684210526,
+        "index": 33.43321999999999,
+        "level": "어려움",
+        "n_sents": 76,
+        "n_chars": 3436,
+        "n_tokens": 827,
+        "n_mid": 230
+      }
+    },
+    {
+      "doc": "doc11",
+      "n_insertions": 5,
+      "K": {
+        "mid_vocab": 72.29,
+        "wps": 21.757575757575758,
+        "index": 20.389643333333332,
+        "level": "어려움",
+        "n_sents": 33,
+        "n_chars": 2893,
+        "n_tokens": 693,
+        "n_mid": 204
+      },
+      "A": {
+        "mid_vocab": 66.42,
+        "wps": 10.105263157894736,
+        "index": 34.09837999999999,
+        "level": "어려움",
+        "n_sents": 38,
+        "n_chars": 1636,
+        "n_tokens": 405,
+        "n_mid": 91
+      },
+      "E105": {
+        "mid_vocab": 66.51,
+        "wps": 10.384615384615385,
+        "index": 33.78296692307692,
+        "level": "어려움",
+        "n_sents": 39,
+        "n_chars": 1716,
+        "n_tokens": 424,
+        "n_mid": 97
+      },
+      "E11": {
+        "mid_vocab": 67.49,
+        "wps": 10.871794871794872,
+        "index": 33.018084358974356,
+        "level": "어려움",
+        "n_sents": 39,
+        "n_chars": 1790,
+        "n_tokens": 443,
+        "n_mid": 108
+      }
+    },
+    {
+      "doc": "doc12",
+      "n_insertions": 5,
+      "K": {
+        "mid_vocab": 70.71,
+        "wps": 21.523809523809526,
+        "index": 21.04630904761905,
+        "level": "어려움",
+        "n_sents": 21,
+        "n_chars": 1760,
+        "n_tokens": 437,
+        "n_mid": 143
+      },
+      "A": {
+        "mid_vocab": 65.92,
+        "wps": 8.803921568627452,
+        "index": 35.58878196078431,
+        "level": "보통",
+        "n_sents": 51,
+        "n_chars": 1783,
+        "n_tokens": 449,
+        "n_mid": 113
+      },
+      "E105": {
+        "mid_vocab": 66.11,
+        "wps": 9.313725490196079,
+        "index": 35.00644686274509,
+        "level": "보통",
+        "n_sents": 51,
+        "n_chars": 1896,
+        "n_tokens": 475,
+        "n_mid": 122
+      },
+      "E11": {
+        "mid_vocab": 66.6,
+        "wps": 9.509803921568627,
+        "index": 34.67365490196079,
+        "level": "어려움",
+        "n_sents": 51,
+        "n_chars": 1934,
+        "n_tokens": 485,
+        "n_mid": 128
+      }
+    },
+    {
+      "doc": "doc13",
+      "n_insertions": 6,
+      "K": {
+        "mid_vocab": 70.18,
+        "wps": 21.35,
+        "index": 21.36627,
+        "level": "어려움",
+        "n_sents": 20,
+        "n_chars": 1578,
+        "n_tokens": 399,
+        "n_mid": 142
+      },
+      "A": {
+        "mid_vocab": 63.03,
+        "wps": 7.877551020408164,
+        "index": 37.31112918367347,
+        "level": "보통",
+        "n_sents": 49,
+        "n_chars": 1680,
+        "n_tokens": 422,
+        "n_mid": 123
+      },
+      "E105": {
+        "mid_vocab": 63.39,
+        "wps": 8.3,
+        "index": 36.775710000000004,
+        "level": "보통",
+        "n_sents": 50,
+        "n_chars": 1793,
+        "n_tokens": 448,
+        "n_mid": 132
+      },
+      "E11": {
+        "mid_vocab": 63.87,
+        "wps": 8.490196078431373,
+        "index": 36.45167509803922,
+        "level": "보통",
+        "n_sents": 51,
+        "n_chars": 1855,
+        "n_tokens": 465,
+        "n_mid": 141
+      }
+    },
+    {
+      "doc": "doc14",
+      "n_insertions": 6,
+      "K": {
+        "mid_vocab": 71.25,
+        "wps": 17.708333333333332,
+        "index": 24.89254166666667,
+        "level": "어려움",
+        "n_sents": 24,
+        "n_chars": 1600,
+        "n_tokens": 400,
+        "n_mid": 152
+      },
+      "A": {
+        "mid_vocab": 61.71,
+        "wps": 7.76595744680851,
+        "index": 37.772264468085105,
+        "level": "보통",
+        "n_sents": 47,
+        "n_chars": 1594,
+        "n_tokens": 397,
+        "n_mid": 102
+      },
+      "E105": {
+        "mid_vocab": 62.17,
+        "wps": 8.208333333333334,
+        "index": 37.18992166666666,
+        "level": "보통",
+        "n_sents": 48,
+        "n_chars": 1707,
+        "n_tokens": 423,
+        "n_mid": 111
+      },
+      "E11": {
+        "mid_vocab": 62.73,
+        "wps": 8.5625,
+        "index": 36.673657500000004,
+        "level": "보통",
+        "n_sents": 48,
+        "n_chars": 1769,
+        "n_tokens": 440,
+        "n_mid": 120
+      }
+    },
+    {
+      "doc": "doc2",
+      "n_insertions": 6,
+      "K": {
+        "mid_vocab": 68.4,
+        "wps": 22.035714285714285,
+        "index": 21.11427857142857,
+        "level": "어려움",
+        "n_sents": 28,
+        "n_chars": 2308,
+        "n_tokens": 595,
+        "n_mid": 173
+      },
+      "A": {
+        "mid_vocab": 64.9,
+        "wps": 9.333333333333334,
+        "index": 35.301766666666666,
+        "level": "보통",
+        "n_sents": 48,
+        "n_chars": 1921,
+        "n_tokens": 473,
+        "n_mid": 114
+      },
+      "E105": {
+        "mid_vocab": 65.13,
+        "wps": 9.73469387755102,
+        "index": 34.82231489795918,
+        "level": "어려움",
+        "n_sents": 49,
+        "n_chars": 2034,
+        "n_tokens": 499,
+        "n_mid": 123
+      },
+      "E11": {
+        "mid_vocab": 65.75,
+        "wps": 9.979591836734693,
+        "index": 34.404576530612246,
+        "level": "어려움",
+        "n_sents": 49,
+        "n_chars": 2083,
+        "n_tokens": 511,
+        "n_mid": 130
+      }
+    },
+    {
+      "doc": "doc3",
+      "n_insertions": 4,
+      "K": {
+        "mid_vocab": 70.2,
+        "wps": 27.625,
+        "index": 14.803674999999998,
+        "level": "어려움",
+        "n_sents": 16,
+        "n_chars": 1682,
+        "n_tokens": 406,
+        "n_mid": 142
+      },
+      "A": {
+        "mid_vocab": 67.06,
+        "wps": 7.242424242424242,
+        "index": 36.92300666666666,
+        "level": "보통",
+        "n_sents": 66,
+        "n_chars": 2073,
+        "n_tokens": 513,
+        "n_mid": 165
+      },
+      "E105": {
+        "mid_vocab": 66.73,
+        "wps": 7.3283582089552235,
+        "index": 36.91933567164179,
+        "level": "보통",
+        "n_sents": 67,
+        "n_chars": 2116,
+        "n_tokens": 523,
+        "n_mid": 167
+      },
+      "E11": {
+        "mid_vocab": 67.53,
+        "wps": 7.611940298507463,
+        "index": 36.414192388059696,
+        "level": "보통",
+        "n_sents": 67,
+        "n_chars": 2190,
+        "n_tokens": 542,
+        "n_mid": 178
+      }
+    },
+    {
+      "doc": "doc4",
+      "n_insertions": 6,
+      "K": {
+        "mid_vocab": 75.41,
+        "wps": 27.558823529411764,
+        "index": 13.51301941176471,
+        "level": "어려움",
+        "n_sents": 34,
+        "n_chars": 3695,
+        "n_tokens": 907,
+        "n_mid": 280
+      },
+      "A": {
+        "mid_vocab": 72.64,
+        "wps": 8.814285714285715,
+        "index": 33.82403142857143,
+        "level": "어려움",
+        "n_sents": 70,
+        "n_chars": 2457,
+        "n_tokens": 614,
+        "n_mid": 148
+      },
+      "E105": {
+        "mid_vocab": 72.22,
+        "wps": 9.19718309859155,
+        "index": 33.53352366197183,
+        "level": "어려움",
+        "n_sents": 71,
+        "n_chars": 2602,
+        "n_tokens": 648,
+        "n_mid": 159
+      },
+      "E11": {
+        "mid_vocab": 72.49,
+        "wps": 9.338028169014084,
+        "index": 33.31587056338029,
+        "level": "어려움",
+        "n_sents": 71,
+        "n_chars": 2640,
+        "n_tokens": 658,
+        "n_mid": 165
+      }
+    },
+    {
+      "doc": "doc5",
+      "n_insertions": 5,
+      "K": {
+        "mid_vocab": 69.72,
+        "wps": 21.2,
+        "index": 21.643080000000005,
+        "level": "어려움",
+        "n_sents": 20,
+        "n_chars": 1587,
+        "n_tokens": 393,
+        "n_mid": 133
+      },
+      "A": {
+        "mid_vocab": 66.98,
+        "wps": 8.122448979591837,
+        "index": 36.02426081632653,
+        "level": "보통",
+        "n_sents": 49,
+        "n_chars": 1670,
+        "n_tokens": 427,
+        "n_mid": 122
+      },
+      "E105": {
+        "mid_vocab": 67.11,
+        "wps": 8.54,
+        "index": 35.55399,
+        "level": "보통",
+        "n_sents": 50,
+        "n_chars": 1783,
+        "n_tokens": 453,
+        "n_mid": 131
+      },
+      "E11": {
+        "mid_vocab": 67.6,
+        "wps": 8.74,
+        "index": 35.2171,
+        "level": "보통",
+        "n_sents": 50,
+        "n_chars": 1821,
+        "n_tokens": 463,
+        "n_mid": 137
+      }
+    },
+    {
+      "doc": "doc7",
+      "n_insertions": 3,
+      "K": {
+        "mid_vocab": 67.03,
+        "wps": 24.916666666666668,
+        "index": 18.46125333333333,
+        "level": "어려움",
+        "n_sents": 12,
+        "n_chars": 1173,
+        "n_tokens": 276,
+        "n_mid": 80
+      },
+      "A": {
+        "mid_vocab": 64.69,
+        "wps": 8.966666666666667,
+        "index": 35.73974333333334,
+        "level": "보통",
+        "n_sents": 30,
+        "n_chars": 1211,
+        "n_tokens": 303,
+        "n_mid": 67
+      },
+      "E105": {
+        "mid_vocab": 64.22,
+        "wps": 9.3,
+        "index": 35.51408,
+        "level": "보통",
+        "n_sents": 30,
+        "n_chars": 1254,
+        "n_tokens": 313,
+        "n_mid": 69
+      },
+      "E11": {
+        "mid_vocab": 65.02,
+        "wps": 9.633333333333333,
+        "index": 34.95694666666667,
+        "level": "어려움",
+        "n_sents": 30,
+        "n_chars": 1292,
+        "n_tokens": 323,
+        "n_mid": 75
+      }
+    },
+    {
+      "doc": "doc8",
+      "n_insertions": 3,
+      "K": {
+        "mid_vocab": 68.1,
+        "wps": 18.5625,
+        "index": 24.8220875,
+        "level": "어려움",
+        "n_sents": 16,
+        "n_chars": 1170,
+        "n_tokens": 279,
+        "n_mid": 82
+      },
+      "A": {
+        "mid_vocab": 62.4,
+        "wps": 9.458333333333334,
+        "index": 35.82364166666667,
+        "level": "보통",
+        "n_sents": 24,
+        "n_chars": 974,
+        "n_tokens": 250,
+        "n_mid": 62
+      },
+      "E105": {
+        "mid_vocab": 61.92,
+        "wps": 9.875,
+        "index": 35.513505,
+        "level": "보통",
+        "n_sents": 24,
+        "n_chars": 1017,
+        "n_tokens": 260,
+        "n_mid": 64
+      },
+      "E11": {
+        "mid_vocab": 62.96,
+        "wps": 10.291666666666666,
+        "index": 34.80664833333333,
+        "level": "어려움",
+        "n_sents": 24,
+        "n_chars": 1055,
+        "n_tokens": 270,
+        "n_mid": 70
+      }
+    },
+    {
+      "doc": "doc9",
+      "n_insertions": 6,
+      "K": {
+        "mid_vocab": 70.56,
+        "wps": 20.57777777777778,
+        "index": 22.074062222222217,
+        "level": "어려움",
+        "n_sents": 45,
+        "n_chars": 3614,
+        "n_tokens": 890,
+        "n_mid": 293
+      },
+      "A": {
+        "mid_vocab": 67.61,
+        "wps": 11.127272727272727,
+        "index": 32.71979,
+        "level": "어려움",
+        "n_sents": 55,
+        "n_chars": 2679,
+        "n_tokens": 639,
+        "n_mid": 189
+      },
+      "E105": {
+        "mid_vocab": 67.76,
+        "wps": 11.589285714285714,
+        "index": 32.19783642857143,
+        "level": "어려움",
+        "n_sents": 56,
+        "n_chars": 2821,
+        "n_tokens": 673,
+        "n_mid": 200
+      },
+      "E11": {
+        "mid_vocab": 68.15,
+        "wps": 11.625,
+        "index": 32.058725,
+        "level": "어려움",
+        "n_sents": 56,
+        "n_chars": 2834,
+        "n_tokens": 675,
+        "n_mid": 204
+      }
+    }
+  ]
+}
