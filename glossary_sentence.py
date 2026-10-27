@@ -70,11 +70,16 @@ def has_batchim(ch: str) -> bool:
     return 0 <= code < 11172 and code % 28 != 0
 
 
+DEF_PREFIX = ""   # --prefix 로 지정. 교수님 원안은 '여기서'
+
+
 def make_definition_sentence(term: str, explanation: str) -> str:
-    """'출혈' + '피가 혈관 밖으로 나오는 것' → '출혈은 피가 혈관 밖으로 나오는 것입니다.'"""
+    """'출혈' + '피가 혈관 밖으로 나오는 것' → '출혈은 피가 혈관 밖으로 나오는 것입니다.'
+    --prefix 여기서 → '여기서 출혈은 피가 혈관 밖으로 나오는 것입니다.'"""
     josa = "은" if has_batchim(term[-1]) else "는"
     expl = explanation.strip().rstrip(".")
-    return f"{term}{josa} {expl}입니다."
+    head = (DEF_PREFIX.strip() + " ") if DEF_PREFIX.strip() else ""
+    return f"{head}{term}{josa} {expl}입니다."
 
 
 def find_insertion_point(text: str, pos: int, bound_re) -> Tuple[int, str]:
@@ -406,10 +411,22 @@ def run_report(a, home: str) -> None:
         _f((ss.get("grounding_E_all") or 0) - (si.get("grounding_E_all") or 0), 2, 0, True))
     row("  └ Grounding cost (E − A)", _f(si.get("delta_grounding"), 2, 0, True),
         _f(ss.get("delta_grounding"), 2, 0, True))
-    gate_i = (si.get("grounding_E_all") or 0) >= 70
-    gate_s = (ss.get("grounding_E_all") or 0) >= 70
-    row("  └ Safety Gate Grounding ≥ 70", "통과" if gate_i else "미달",
-        "통과" if gate_s else "미달")
+    # Safety Gate 는 문서 단위 판정이다 (phase2_eval.gate_pass). 평균이 아니라
+    # Grounding ≥ 70 을 만족한 문서 수를 센다. 설명문에는 숫자가 없으므로
+    # 수치 조건은 A 와 같다.
+    def _gate(rows_):
+        v = [r.get("ground_E") for r in rows_.values() if r.get("ground_E") is not None]
+        return sum(1 for x in v if x >= 70), len(v)
+    gi_ok, gi_n = _gate(rows_i)
+    gs_ok, gs_n = _gate(rows_s)
+    ga = [r.get("ground_A") for r in rows_s.values() if r.get("ground_A") is not None]
+    ga_ok = sum(1 for x in ga if x >= 70)
+    gate_i, gate_s = f"{gi_ok}/{gi_n}", f"{gs_ok}/{gs_n}"
+    row("  └ Grounding ≥ 70 문서 수 (A " + f"{ga_ok}/{len(ga)})", gate_i, gate_s)
+    fail = sorted(d for d, r in rows_s.items()
+                  if r.get("ground_E") is not None and r["ground_E"] < 70)
+    if fail:
+        print("      Grounding 70 미만 문서 (문장 분리형): " + ", ".join(fail))
     n_digit = 0
     for sp in glob.glob(os.path.join(home, a.outdir, "E", "*.json")):
         with open(sp, encoding="utf-8") as f:
@@ -507,7 +524,11 @@ def run_report(a, home: str) -> None:
         "docs_sentence_better_ko2025": better, "n_docs": len(per),
         "per_doc": per,
     }
-    op = os.path.join(home, "glossary_sentence_compare.json")
+    # 실험 폴더마다 다른 파일에 저장한다 (기본 폴더는 기존 이름 유지)
+    tag = os.path.basename(os.path.normpath(a.outdir))
+    name = ("glossary_sentence_compare.json" if tag == "outputs_glossary_v11_sent"
+            else f"glossary_sentence_compare_{tag}.json")
+    op = os.path.join(home, name)
     with open(op, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     print("\n[SAVE] " + op)
@@ -536,8 +557,12 @@ def main():
     ap.add_argument("--variant-review", default="variant_review.csv")
     ap.add_argument("--gpu", type=int, default=0)
     ap.add_argument("--report-only", action="store_true")
+    ap.add_argument("--prefix", default="",
+                    help="설명문 앞머리. 교수님 원안 형태는 --prefix 여기서")
     a = ap.parse_args()
 
+    global DEF_PREFIX
+    DEF_PREFIX = a.prefix
     home = os.path.abspath(os.path.expanduser(a.home))
     _bootstrap(home)
     os.chdir(home)
