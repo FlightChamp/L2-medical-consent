@@ -1,5 +1,5 @@
 {
-  "created": "2026-10-27T12:46:38.176070+00:00",
+  "created": "2026-10-27T14:22:55.726056+00:00",
   "design": "independent variable = explanation form only (inline vs sentence)",
   "inline_eval": "eval_A_vs_E_v11.json",
   "sentence_eval": "eval_A_vs_E_v11_sent.json",
@@ -35,8 +35,8 @@
     "sentence_E": 80.55923076923077
   },
   "safety_gate_grounding70": {
-    "inline": true,
-    "sentence": true
+    "inline": "12/13",
+    "sentence": "12/13"
   },
   "docs_sentence_better_ko2025": 13,
   "n_docs": 13,
